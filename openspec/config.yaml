@@ -1,0 +1,25 @@
+schema: spec-driven
+
+context: |
+  Squander: a personal iOS app for fast spending entry and simple totals.
+
+  Tech stack:
+  - Swift 5.10+, SwiftUI, iOS 17+ target
+  - SwiftData for local persistence (single-user, on-device only)
+  - Xcode Cloud for CI/CD (build, test, TestFlight distribution)
+  - XCTest / Swift Testing for unit and UI tests
+
+  Product principles:
+  - Speed of entry above all: app opens straight into a numeric keypad
+  - Whole dollars only — no cents, ever
+  - Small, bounded category set (10-30 categories max)
+  - Learn from past behavior: description autocomplete and
+    description→category memory
+  - No accounts, no sync, no network dependency for core features
+
+rules:
+  proposal:
+    - Keep proposals under 2 pages
+  specs:
+    - Every requirement uses SHALL and has at least one scenario
+    - Amounts in examples are whole dollars (no cents)
