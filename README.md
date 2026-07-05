@@ -1,4 +1,4 @@
-# squander
+# spendthrift
 
 A personal iOS spending tracker built for speed: open the app, punch in a whole-dollar amount on the keypad, type a short description ("cafe", "electrolytes"), confirm a category, done. The app learns — descriptions autocomplete from past expenses, and known descriptions are categorized automatically. A Totals tab shows daily, weekly, and monthly spending.
 
