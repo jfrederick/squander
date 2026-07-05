@@ -1,0 +1,663 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		15E081D31428DC249BC93F97 /* DeleteCategoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509D78D61FC9BC1E1F621093 /* DeleteCategoryTests.swift */; };
+		1E6728F32E25D5D236269880 /* UpdateExpenseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B238D140FBB7D4566B09C807 /* UpdateExpenseTests.swift */; };
+		2B6874B0CA1ECB102FAA7F1F /* SquanderCore in Frameworks */ = {isa = PBXBuildFile; productRef = 8E1AC61DB3F596CB4C54D817 /* SquanderCore */; };
+		365638772AD7450D9BD2C009 /* EntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94800179C5324FCA3F6DAD84 /* EntryView.swift */; };
+		3BE4FFE0640F2883A62787B2 /* DeleteRestoreExpenseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57E302A8292C377F1FDB0DA /* DeleteRestoreExpenseTests.swift */; };
+		4F65E8C9C8CA37E1BCBF1F88 /* ExpenseListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF5DDE861C8092C3FC11850 /* ExpenseListView.swift */; };
+		5239BF55B0BC3F24A3D0EFC9 /* TotalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A85427044691F0F31A236D /* TotalsView.swift */; };
+		526EF03F23CBD088AA784E2B /* RootTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBA2C3590AAC7066CB20879 /* RootTabView.swift */; };
+		61AD045D1314B3A4747E872C /* SquanderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7844948FB4C41835C60D58F /* SquanderUITests.swift */; };
+		6C2FB437AC3003F4E66E9359 /* TestSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D035D86217CC54ACEE5D7E2 /* TestSupport.swift */; };
+		6E4230A6B3E1CAA0DD99FB94 /* CategoryColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049B99168D778971D39C89BC /* CategoryColor.swift */; };
+		700B043BB72746D774CB0B6D /* SquanderCore in Frameworks */ = {isa = PBXBuildFile; productRef = D67014818CF73BA3D3C4F789 /* SquanderCore */; };
+		7411BBA63B39E22387416A91 /* SquanderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3270479B4CF8246B8775FD5 /* SquanderApp.swift */; };
+		76E6064DF3E371554AE6DC26 /* SquanderSchema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976ED0E1DA6F4795BDDDF8FA /* SquanderSchema.swift */; };
+		8516EBA0A357B20DC8B5B999 /* QueryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0F178E7D8F9E0614D04DDB /* QueryTests.swift */; };
+		91C667579C6C93FADB011427 /* CategoryPickerSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6679C3495608F05E7EE9DA8 /* CategoryPickerSheet.swift */; };
+		97AB99F4BFD6992F23D34ABF /* PersistenceRoundTripTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A505466A08BF575B1B072E /* PersistenceRoundTripTests.swift */; };
+		B4BC14D5A7F9CF557E432D0C /* LabelMappingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82CB2A3C4D6FC43FF7E3731 /* LabelMappingTests.swift */; };
+		BBEF8E8E3EF6CC5F1AFC98CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 816A04A42758E7D516197CDB /* Assets.xcassets */; };
+		BC7749AB7794BA3DB0F0C661 /* CategoryCreationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95800EBC70AFBB541B04D577 /* CategoryCreationTests.swift */; };
+		BC8A73640B020EF5833E8C1A /* AmountDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EE31D029F5BC2DB062FD3B /* AmountDisplayView.swift */; };
+		C208424076069ED3BBDCE847 /* KeypadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15877F321A9363545092344B /* KeypadView.swift */; };
+		D1C0037452D84A84AC7CF55A /* ExpenseStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9B1B65D5B6EDE27F345389 /* ExpenseStore.swift */; };
+		D348BAC40A9EDBB6C061A35E /* SeedingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA16596B6FA710B497E8BB9 /* SeedingTests.swift */; };
+		E526F821EA290C8B42D0957A /* SaveExpenseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508FE8E440382AC18F9B33BA /* SaveExpenseTests.swift */; };
+		F6CE175D1321D17A19FC8D05 /* ExpenseEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 674548BF223A6281DED78ACF /* ExpenseEditView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3FB6B9C9F1C12566B252CAFD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3190D1E370E50202E7DB757C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 82D58FBE293B8C3860DAED4D;
+			remoteInfo = Squander;
+		};
+		6396124AD0D8745948D7CA96 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3190D1E370E50202E7DB757C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 82D58FBE293B8C3860DAED4D;
+			remoteInfo = Squander;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		049B99168D778971D39C89BC /* CategoryColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryColor.swift; sourceTree = "<group>"; };
+		0FA16596B6FA710B497E8BB9 /* SeedingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedingTests.swift; sourceTree = "<group>"; };
+		15877F321A9363545092344B /* KeypadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeypadView.swift; sourceTree = "<group>"; };
+		20EE31D029F5BC2DB062FD3B /* AmountDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmountDisplayView.swift; sourceTree = "<group>"; };
+		42A3FCBE791EA4B3AC272FAC /* SquanderUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = SquanderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		508FE8E440382AC18F9B33BA /* SaveExpenseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveExpenseTests.swift; sourceTree = "<group>"; };
+		509D78D61FC9BC1E1F621093 /* DeleteCategoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteCategoryTests.swift; sourceTree = "<group>"; };
+		57387E0A7832E950FDAD89D5 /* SquanderTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = SquanderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		58A505466A08BF575B1B072E /* PersistenceRoundTripTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceRoundTripTests.swift; sourceTree = "<group>"; };
+		5D035D86217CC54ACEE5D7E2 /* TestSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSupport.swift; sourceTree = "<group>"; };
+		674548BF223A6281DED78ACF /* ExpenseEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseEditView.swift; sourceTree = "<group>"; };
+		6EA8E2B679EDF4EA8F8DF890 /* Squander.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Squander.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		73CBDB3D61556D5FF1393D03 /* SquanderCore */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SquanderCore; path = SquanderCore; sourceTree = SOURCE_ROOT; };
+		816A04A42758E7D516197CDB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		94800179C5324FCA3F6DAD84 /* EntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryView.swift; sourceTree = "<group>"; };
+		95800EBC70AFBB541B04D577 /* CategoryCreationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCreationTests.swift; sourceTree = "<group>"; };
+		976ED0E1DA6F4795BDDDF8FA /* SquanderSchema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquanderSchema.swift; sourceTree = "<group>"; };
+		9B0F178E7D8F9E0614D04DDB /* QueryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryTests.swift; sourceTree = "<group>"; };
+		AA9B1B65D5B6EDE27F345389 /* ExpenseStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseStore.swift; sourceTree = "<group>"; };
+		ADBA2C3590AAC7066CB20879 /* RootTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabView.swift; sourceTree = "<group>"; };
+		B238D140FBB7D4566B09C807 /* UpdateExpenseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateExpenseTests.swift; sourceTree = "<group>"; };
+		CAF5DDE861C8092C3FC11850 /* ExpenseListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseListView.swift; sourceTree = "<group>"; };
+		D0A85427044691F0F31A236D /* TotalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalsView.swift; sourceTree = "<group>"; };
+		D3270479B4CF8246B8775FD5 /* SquanderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquanderApp.swift; sourceTree = "<group>"; };
+		D57E302A8292C377F1FDB0DA /* DeleteRestoreExpenseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteRestoreExpenseTests.swift; sourceTree = "<group>"; };
+		E7844948FB4C41835C60D58F /* SquanderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquanderUITests.swift; sourceTree = "<group>"; };
+		F6679C3495608F05E7EE9DA8 /* CategoryPickerSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPickerSheet.swift; sourceTree = "<group>"; };
+		F82CB2A3C4D6FC43FF7E3731 /* LabelMappingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelMappingTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1DCE8D3F8D13EED277D78210 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				700B043BB72746D774CB0B6D /* SquanderCore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4BC7321EE7AD9BA9534E81CD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2B6874B0CA1ECB102FAA7F1F /* SquanderCore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0269CC43D891C241C9FB739B = {
+			isa = PBXGroup;
+			children = (
+				D186EA2DA3A9C7CB91FF9E6A /* Packages */,
+				87BD02DE5C993335B04CE656 /* Squander */,
+				685E945A889D4D2EF45D92E1 /* SquanderTests */,
+				2D172A108ECBE473BB0FE5C0 /* SquanderUITests */,
+				5C1A651BC13AE45A56343931 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2D172A108ECBE473BB0FE5C0 /* SquanderUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E7844948FB4C41835C60D58F /* SquanderUITests.swift */,
+			);
+			path = SquanderUITests;
+			sourceTree = "<group>";
+		};
+		5C1A651BC13AE45A56343931 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6EA8E2B679EDF4EA8F8DF890 /* Squander.app */,
+				57387E0A7832E950FDAD89D5 /* SquanderTests.xctest */,
+				42A3FCBE791EA4B3AC272FAC /* SquanderUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		685E945A889D4D2EF45D92E1 /* SquanderTests */ = {
+			isa = PBXGroup;
+			children = (
+				95800EBC70AFBB541B04D577 /* CategoryCreationTests.swift */,
+				509D78D61FC9BC1E1F621093 /* DeleteCategoryTests.swift */,
+				D57E302A8292C377F1FDB0DA /* DeleteRestoreExpenseTests.swift */,
+				F82CB2A3C4D6FC43FF7E3731 /* LabelMappingTests.swift */,
+				58A505466A08BF575B1B072E /* PersistenceRoundTripTests.swift */,
+				9B0F178E7D8F9E0614D04DDB /* QueryTests.swift */,
+				508FE8E440382AC18F9B33BA /* SaveExpenseTests.swift */,
+				0FA16596B6FA710B497E8BB9 /* SeedingTests.swift */,
+				5D035D86217CC54ACEE5D7E2 /* TestSupport.swift */,
+				B238D140FBB7D4566B09C807 /* UpdateExpenseTests.swift */,
+			);
+			path = SquanderTests;
+			sourceTree = "<group>";
+		};
+		7D829BF52B88982127F8031C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AA9B1B65D5B6EDE27F345389 /* ExpenseStore.swift */,
+				976ED0E1DA6F4795BDDDF8FA /* SquanderSchema.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		87BD02DE5C993335B04CE656 /* Squander */ = {
+			isa = PBXGroup;
+			children = (
+				816A04A42758E7D516197CDB /* Assets.xcassets */,
+				D3270479B4CF8246B8775FD5 /* SquanderApp.swift */,
+				7D829BF52B88982127F8031C /* Models */,
+				D2E4348F495B024A475C0057 /* Views */,
+			);
+			path = Squander;
+			sourceTree = "<group>";
+		};
+		D186EA2DA3A9C7CB91FF9E6A /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				73CBDB3D61556D5FF1393D03 /* SquanderCore */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+		D2E4348F495B024A475C0057 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				20EE31D029F5BC2DB062FD3B /* AmountDisplayView.swift */,
+				049B99168D778971D39C89BC /* CategoryColor.swift */,
+				F6679C3495608F05E7EE9DA8 /* CategoryPickerSheet.swift */,
+				94800179C5324FCA3F6DAD84 /* EntryView.swift */,
+				674548BF223A6281DED78ACF /* ExpenseEditView.swift */,
+				CAF5DDE861C8092C3FC11850 /* ExpenseListView.swift */,
+				15877F321A9363545092344B /* KeypadView.swift */,
+				ADBA2C3590AAC7066CB20879 /* RootTabView.swift */,
+				D0A85427044691F0F31A236D /* TotalsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		82D58FBE293B8C3860DAED4D /* Squander */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D8655B214469B76AF06C6B41 /* Build configuration list for PBXNativeTarget "Squander" */;
+			buildPhases = (
+				09C0191282C84ACB67179E51 /* Sources */,
+				9687D98FF49A4F47BE12E7C0 /* Resources */,
+				1DCE8D3F8D13EED277D78210 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Squander;
+			packageProductDependencies = (
+				D67014818CF73BA3D3C4F789 /* SquanderCore */,
+			);
+			productName = Squander;
+			productReference = 6EA8E2B679EDF4EA8F8DF890 /* Squander.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E2AB665974A900DC5C2FEFA7 /* SquanderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3DC5531830D26201C64CC886 /* Build configuration list for PBXNativeTarget "SquanderTests" */;
+			buildPhases = (
+				7D67C6B78FD985C80065359D /* Sources */,
+				4BC7321EE7AD9BA9534E81CD /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7009B729E31FC205D2A050A3 /* PBXTargetDependency */,
+			);
+			name = SquanderTests;
+			packageProductDependencies = (
+				8E1AC61DB3F596CB4C54D817 /* SquanderCore */,
+			);
+			productName = SquanderTests;
+			productReference = 57387E0A7832E950FDAD89D5 /* SquanderTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E2C1F58A223D503AF7001A49 /* SquanderUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E1F04B5006229453F0EB4305 /* Build configuration list for PBXNativeTarget "SquanderUITests" */;
+			buildPhases = (
+				5878D1F91657B5D059CA79E3 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9F52DACB70CBA0F04FF0EE54 /* PBXTargetDependency */,
+			);
+			name = SquanderUITests;
+			packageProductDependencies = (
+			);
+			productName = SquanderUITests;
+			productReference = 42A3FCBE791EA4B3AC272FAC /* SquanderUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3190D1E370E50202E7DB757C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					82D58FBE293B8C3860DAED4D = {
+						ProvisioningStyle = Automatic;
+					};
+					E2AB665974A900DC5C2FEFA7 = {
+						ProvisioningStyle = Automatic;
+					};
+					E2C1F58A223D503AF7001A49 = {
+						ProvisioningStyle = Automatic;
+						TestTargetID = 82D58FBE293B8C3860DAED4D;
+					};
+				};
+			};
+			buildConfigurationList = 9FA3173CCB45E757D53DC9F5 /* Build configuration list for PBXProject "Squander" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 0269CC43D891C241C9FB739B;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				1F506E79856B1B63DA0DD8A9 /* XCLocalSwiftPackageReference "SquanderCore" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 5C1A651BC13AE45A56343931 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				82D58FBE293B8C3860DAED4D /* Squander */,
+				E2AB665974A900DC5C2FEFA7 /* SquanderTests */,
+				E2C1F58A223D503AF7001A49 /* SquanderUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9687D98FF49A4F47BE12E7C0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BBEF8E8E3EF6CC5F1AFC98CF /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		09C0191282C84ACB67179E51 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BC8A73640B020EF5833E8C1A /* AmountDisplayView.swift in Sources */,
+				6E4230A6B3E1CAA0DD99FB94 /* CategoryColor.swift in Sources */,
+				91C667579C6C93FADB011427 /* CategoryPickerSheet.swift in Sources */,
+				365638772AD7450D9BD2C009 /* EntryView.swift in Sources */,
+				F6CE175D1321D17A19FC8D05 /* ExpenseEditView.swift in Sources */,
+				4F65E8C9C8CA37E1BCBF1F88 /* ExpenseListView.swift in Sources */,
+				D1C0037452D84A84AC7CF55A /* ExpenseStore.swift in Sources */,
+				C208424076069ED3BBDCE847 /* KeypadView.swift in Sources */,
+				526EF03F23CBD088AA784E2B /* RootTabView.swift in Sources */,
+				7411BBA63B39E22387416A91 /* SquanderApp.swift in Sources */,
+				76E6064DF3E371554AE6DC26 /* SquanderSchema.swift in Sources */,
+				5239BF55B0BC3F24A3D0EFC9 /* TotalsView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5878D1F91657B5D059CA79E3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				61AD045D1314B3A4747E872C /* SquanderUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7D67C6B78FD985C80065359D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BC7749AB7794BA3DB0F0C661 /* CategoryCreationTests.swift in Sources */,
+				15E081D31428DC249BC93F97 /* DeleteCategoryTests.swift in Sources */,
+				3BE4FFE0640F2883A62787B2 /* DeleteRestoreExpenseTests.swift in Sources */,
+				B4BC14D5A7F9CF557E432D0C /* LabelMappingTests.swift in Sources */,
+				97AB99F4BFD6992F23D34ABF /* PersistenceRoundTripTests.swift in Sources */,
+				8516EBA0A357B20DC8B5B999 /* QueryTests.swift in Sources */,
+				E526F821EA290C8B42D0957A /* SaveExpenseTests.swift in Sources */,
+				D348BAC40A9EDBB6C061A35E /* SeedingTests.swift in Sources */,
+				6C2FB437AC3003F4E66E9359 /* TestSupport.swift in Sources */,
+				1E6728F32E25D5D236269880 /* UpdateExpenseTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7009B729E31FC205D2A050A3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 82D58FBE293B8C3860DAED4D /* Squander */;
+			targetProxy = 6396124AD0D8745948D7CA96 /* PBXContainerItemProxy */;
+		};
+		9F52DACB70CBA0F04FF0EE54 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 82D58FBE293B8C3860DAED4D /* Squander */;
+			targetProxy = 3FB6B9C9F1C12566B252CAFD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		34322BF07B6CA0F1382C0217 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 6.0;
+			};
+			name = Release;
+		};
+		39B90D2204B416353EEF0F2F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dev.jimfrederick.SquanderUITests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Squander;
+			};
+			name = Debug;
+		};
+		7C33E395E769C76C2F670047 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dev.jimfrederick.SquanderTests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Squander.app/Squander";
+			};
+			name = Release;
+		};
+		9BDDE8532C0BD04EAC7E023A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Squander;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.jimfrederick.squander;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		A58A4D1BF82ADF2FC508F7F7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dev.jimfrederick.SquanderUITests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Squander;
+			};
+			name = Release;
+		};
+		A8436AC35466270ECCE1F2CB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
+			};
+			name = Debug;
+		};
+		C733BDC050FF5D684591EFCC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Squander;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.jimfrederick.squander;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		D2840EE547F5484F8AB5BFAC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dev.jimfrederick.SquanderTests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Squander.app/Squander";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3DC5531830D26201C64CC886 /* Build configuration list for PBXNativeTarget "SquanderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D2840EE547F5484F8AB5BFAC /* Debug */,
+				7C33E395E769C76C2F670047 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		9FA3173CCB45E757D53DC9F5 /* Build configuration list for PBXProject "Squander" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A8436AC35466270ECCE1F2CB /* Debug */,
+				34322BF07B6CA0F1382C0217 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		D8655B214469B76AF06C6B41 /* Build configuration list for PBXNativeTarget "Squander" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9BDDE8532C0BD04EAC7E023A /* Debug */,
+				C733BDC050FF5D684591EFCC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		E1F04B5006229453F0EB4305 /* Build configuration list for PBXNativeTarget "SquanderUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				39B90D2204B416353EEF0F2F /* Debug */,
+				A58A4D1BF82ADF2FC508F7F7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		1F506E79856B1B63DA0DD8A9 /* XCLocalSwiftPackageReference "SquanderCore" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = SquanderCore;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8E1AC61DB3F596CB4C54D817 /* SquanderCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SquanderCore;
+		};
+		D67014818CF73BA3D3C4F789 /* SquanderCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SquanderCore;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 3190D1E370E50202E7DB757C /* Project object */;
+}
