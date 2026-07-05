@@ -1,0 +1,149 @@
+{
+  "" : {
+    "diagnostics" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/Squander-primary.dia",
+    "emit-module-dependencies" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/Squander-primary-emit-module.d",
+    "emit-module-diagnostics" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/Squander-primary-emit-module.dia",
+    "pch" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/Squander-primary-Bridging-header.pch",
+    "swift-dependencies" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/Squander-primary.swiftdeps"
+  },
+  "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/Squander/Models/ExpenseStore.swift" : {
+    "const-values" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/ExpenseStore.swiftconstvalues",
+    "dependencies" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/ExpenseStore.d",
+    "diagnostics" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/ExpenseStore.dia",
+    "index-unit-output-path" : "/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/ExpenseStore.o",
+    "llvm-bc" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/ExpenseStore.bc",
+    "object" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/ExpenseStore.o",
+    "swift-dependencies" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/ExpenseStore.swiftdeps",
+    "swiftmodule" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/ExpenseStore~partial.swiftmodule"
+  },
+  "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/Squander/Models/SquanderSchema.swift" : {
+    "const-values" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/SquanderSchema.swiftconstvalues",
+    "dependencies" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/SquanderSchema.d",
+    "diagnostics" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/SquanderSchema.dia",
+    "index-unit-output-path" : "/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/SquanderSchema.o",
+    "llvm-bc" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/SquanderSchema.bc",
+    "object" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/SquanderSchema.o",
+    "swift-dependencies" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/SquanderSchema.swiftdeps",
+    "swiftmodule" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/SquanderSchema~partial.swiftmodule"
+  },
+  "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/Squander/SquanderApp.swift" : {
+    "const-values" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/SquanderApp.swiftconstvalues",
+    "dependencies" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/SquanderApp.d",
+    "diagnostics" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/SquanderApp.dia",
+    "index-unit-output-path" : "/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/SquanderApp.o",
+    "llvm-bc" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/SquanderApp.bc",
+    "object" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/SquanderApp.o",
+    "swift-dependencies" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/SquanderApp.swiftdeps",
+    "swiftmodule" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/SquanderApp~partial.swiftmodule"
+  },
+  "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/Squander/Views/AmountDisplayView.swift" : {
+    "const-values" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/AmountDisplayView.swiftconstvalues",
+    "dependencies" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/AmountDisplayView.d",
+    "diagnostics" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/AmountDisplayView.dia",
+    "index-unit-output-path" : "/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/AmountDisplayView.o",
+    "llvm-bc" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/AmountDisplayView.bc",
+    "object" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/AmountDisplayView.o",
+    "swift-dependencies" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/AmountDisplayView.swiftdeps",
+    "swiftmodule" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/AmountDisplayView~partial.swiftmodule"
+  },
+  "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/Squander/Views/CategoryColor.swift" : {
+    "const-values" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/CategoryColor.swiftconstvalues",
+    "dependencies" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/CategoryColor.d",
+    "diagnostics" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/CategoryColor.dia",
+    "index-unit-output-path" : "/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/CategoryColor.o",
+    "llvm-bc" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/CategoryColor.bc",
+    "object" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/CategoryColor.o",
+    "swift-dependencies" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/CategoryColor.swiftdeps",
+    "swiftmodule" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/CategoryColor~partial.swiftmodule"
+  },
+  "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/Squander/Views/CategoryPickerSheet.swift" : {
+    "const-values" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/CategoryPickerSheet.swiftconstvalues",
+    "dependencies" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/CategoryPickerSheet.d",
+    "diagnostics" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/CategoryPickerSheet.dia",
+    "index-unit-output-path" : "/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/CategoryPickerSheet.o",
+    "llvm-bc" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/CategoryPickerSheet.bc",
+    "object" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/CategoryPickerSheet.o",
+    "swift-dependencies" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/CategoryPickerSheet.swiftdeps",
+    "swiftmodule" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/CategoryPickerSheet~partial.swiftmodule"
+  },
+  "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/Squander/Views/EntryView.swift" : {
+    "const-values" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/EntryView.swiftconstvalues",
+    "dependencies" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/EntryView.d",
+    "diagnostics" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/EntryView.dia",
+    "index-unit-output-path" : "/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/EntryView.o",
+    "llvm-bc" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/EntryView.bc",
+    "object" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/EntryView.o",
+    "swift-dependencies" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/EntryView.swiftdeps",
+    "swiftmodule" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/EntryView~partial.swiftmodule"
+  },
+  "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/Squander/Views/ExpenseEditView.swift" : {
+    "const-values" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/ExpenseEditView.swiftconstvalues",
+    "dependencies" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/ExpenseEditView.d",
+    "diagnostics" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/ExpenseEditView.dia",
+    "index-unit-output-path" : "/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/ExpenseEditView.o",
+    "llvm-bc" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/ExpenseEditView.bc",
+    "object" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/ExpenseEditView.o",
+    "swift-dependencies" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/ExpenseEditView.swiftdeps",
+    "swiftmodule" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/ExpenseEditView~partial.swiftmodule"
+  },
+  "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/Squander/Views/ExpenseListView.swift" : {
+    "const-values" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/ExpenseListView.swiftconstvalues",
+    "dependencies" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/ExpenseListView.d",
+    "diagnostics" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/ExpenseListView.dia",
+    "index-unit-output-path" : "/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/ExpenseListView.o",
+    "llvm-bc" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/ExpenseListView.bc",
+    "object" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/ExpenseListView.o",
+    "swift-dependencies" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/ExpenseListView.swiftdeps",
+    "swiftmodule" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/ExpenseListView~partial.swiftmodule"
+  },
+  "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/Squander/Views/Formatting.swift" : {
+    "const-values" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/Formatting.swiftconstvalues",
+    "dependencies" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/Formatting.d",
+    "diagnostics" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/Formatting.dia",
+    "index-unit-output-path" : "/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/Formatting.o",
+    "llvm-bc" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/Formatting.bc",
+    "object" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/Formatting.o",
+    "swift-dependencies" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/Formatting.swiftdeps",
+    "swiftmodule" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/Formatting~partial.swiftmodule"
+  },
+  "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/Squander/Views/KeypadView.swift" : {
+    "const-values" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/KeypadView.swiftconstvalues",
+    "dependencies" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/KeypadView.d",
+    "diagnostics" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/KeypadView.dia",
+    "index-unit-output-path" : "/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/KeypadView.o",
+    "llvm-bc" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/KeypadView.bc",
+    "object" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/KeypadView.o",
+    "swift-dependencies" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/KeypadView.swiftdeps",
+    "swiftmodule" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/KeypadView~partial.swiftmodule"
+  },
+  "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/Squander/Views/RootTabView.swift" : {
+    "const-values" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/RootTabView.swiftconstvalues",
+    "dependencies" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/RootTabView.d",
+    "diagnostics" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/RootTabView.dia",
+    "index-unit-output-path" : "/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/RootTabView.o",
+    "llvm-bc" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/RootTabView.bc",
+    "object" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/RootTabView.o",
+    "swift-dependencies" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/RootTabView.swiftdeps",
+    "swiftmodule" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/RootTabView~partial.swiftmodule"
+  },
+  "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/Squander/Views/TotalsView.swift" : {
+    "const-values" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/TotalsView.swiftconstvalues",
+    "dependencies" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/TotalsView.d",
+    "diagnostics" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/TotalsView.dia",
+    "index-unit-output-path" : "/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/TotalsView.o",
+    "llvm-bc" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/TotalsView.bc",
+    "object" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/TotalsView.o",
+    "swift-dependencies" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/TotalsView.swiftdeps",
+    "swiftmodule" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/TotalsView~partial.swiftmodule"
+  },
+  "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/DerivedSources/GeneratedAssetSymbols.swift" : {
+    "const-values" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftconstvalues",
+    "dependencies" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/GeneratedAssetSymbols.d",
+    "diagnostics" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/GeneratedAssetSymbols.dia",
+    "index-unit-output-path" : "/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "llvm-bc" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/GeneratedAssetSymbols.bc",
+    "object" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "swift-dependencies" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftdeps",
+    "swiftmodule" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/build/Squander.build/Debug-iphonesimulator/Squander.build/Objects-normal/arm64/GeneratedAssetSymbols~partial.swiftmodule"
+  }
+}

@@ -153,7 +153,7 @@ struct ExpenseListView: View {
 
     private func undoDelete() {
         guard let store, let pendingUndoSnapshot else { return }
-        try? store.restoreExpense(pendingUndoSnapshot)
+        _ = try? store.restoreExpense(pendingUndoSnapshot)
         self.pendingUndoSnapshot = nil
         showUndoBar = false
     }

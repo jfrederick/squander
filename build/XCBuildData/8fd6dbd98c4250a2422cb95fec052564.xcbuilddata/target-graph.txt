@@ -1,0 +1,6 @@
+Target dependency graph (3 targets)
+Target 'Squander' in project 'Squander'
+➜ Explicit dependency on target 'SquanderCore' in project 'SquanderCore'
+Target 'SquanderCore' in project 'SquanderCore'
+➜ Explicit dependency on target 'SquanderCore' in project 'SquanderCore'
+Target 'SquanderCore' in project 'SquanderCore' (no dependencies)

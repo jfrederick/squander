@@ -1,0 +1,12 @@
+{
+  "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/SquanderCore/Sources/SquanderCore/AmountEntryState.swift" : {
+    "abi-baseline-json" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/SquanderCore/build/SquanderCore.build/Release-iphonesimulator/SquanderCore.build/Objects-normal/arm64/SquanderCore.abi.json",
+    "const-values" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/SquanderCore/build/SquanderCore.build/Release-iphonesimulator/SquanderCore.build/Objects-normal/arm64/SquanderCore-primary.swiftconstvalues",
+    "dependencies" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/SquanderCore/build/SquanderCore.build/Release-iphonesimulator/SquanderCore.build/Objects-normal/arm64/SquanderCore-primary.d",
+    "diagnostics" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/SquanderCore/build/SquanderCore.build/Release-iphonesimulator/SquanderCore.build/Objects-normal/arm64/SquanderCore-primary.dia",
+    "objc-header" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/SquanderCore/build/SquanderCore.build/Release-iphonesimulator/SquanderCore.build/Objects-normal/arm64/SquanderCore-Swift.h",
+    "swiftdoc" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/SquanderCore/build/SquanderCore.build/Release-iphonesimulator/SquanderCore.build/Objects-normal/arm64/SquanderCore.swiftdoc",
+    "swiftmodule" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/SquanderCore/build/SquanderCore.build/Release-iphonesimulator/SquanderCore.build/Objects-normal/arm64/SquanderCore.swiftmodule",
+    "swiftsourceinfo" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/SquanderCore/build/SquanderCore.build/Release-iphonesimulator/SquanderCore.build/Objects-normal/arm64/SquanderCore.swiftsourceinfo"
+  }
+}
