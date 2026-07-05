@@ -1,6 +1,6 @@
 # squander
 
-A personal iOS spending tracker built for speed: open the app, punch in a whole-dollar amount on the keypad, type a short description ("cafe", "electrolytes"), confirm a category, done. The app learns — descriptions autocomplete from past expenses, and known descriptions are categorized automatically. A Totals tab shows daily, weekly, and monthly spending.
+A personal iOS spending tracker built for speed: open the app, punch in a whole-dollar amount on the keypad, type a short description ("cafe", "electrolytes"), confirm a category, done. The app learns — descriptions autocomplete from past expenses, and known descriptions are categorized automatically. A Totals tab shows daily, weekly, and monthly spending. A Home Screen widget shows today's total with one-tap quick-log buttons for habitual expenses (plus Lock Screen accessories).
 
 ## Status
 

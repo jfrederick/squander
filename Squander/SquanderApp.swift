@@ -11,16 +11,9 @@ struct SquanderApp: App {
         let isUITestMode = arguments.contains("-UITestMode")
         let shouldSeedUITestData = arguments.contains("-UITestSeedData")
 
-        let schema = Schema(versionedSchema: SquanderSchemaV1.self)
-        let configuration = ModelConfiguration(isStoredInMemoryOnly: isUITestMode)
-
         let container: ModelContainer
         do {
-            container = try ModelContainer(
-                for: schema,
-                migrationPlan: SquanderMigrationPlan.self,
-                configurations: [configuration]
-            )
+            container = try SquanderContainer.makeContainer(inMemory: isUITestMode)
         } catch {
             fatalError("Squander failed to create its ModelContainer: \(error)")
         }

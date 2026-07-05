@@ -7,28 +7,39 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04DE0F9E7798E27DFBD4BA1E /* SquanderWidgetsBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F218053CAAB0FB1B3B5C93E /* SquanderWidgetsBundle.swift */; };
+		153FD2DC3327D34B4741093E /* LogQuickExpenseIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057E435B6D18DE0764A50BB9 /* LogQuickExpenseIntent.swift */; };
 		15E081D31428DC249BC93F97 /* DeleteCategoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509D78D61FC9BC1E1F621093 /* DeleteCategoryTests.swift */; };
 		1E6728F32E25D5D236269880 /* UpdateExpenseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B238D140FBB7D4566B09C807 /* UpdateExpenseTests.swift */; };
 		2B6874B0CA1ECB102FAA7F1F /* SquanderCore in Frameworks */ = {isa = PBXBuildFile; productRef = 8E1AC61DB3F596CB4C54D817 /* SquanderCore */; };
+		2F9EA5554C0965E17D4C4C95 /* QuickLogWritePathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D464708A96BDB8D327CE304 /* QuickLogWritePathTests.swift */; };
 		365638772AD7450D9BD2C009 /* EntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94800179C5324FCA3F6DAD84 /* EntryView.swift */; };
 		3BE4FFE0640F2883A62787B2 /* DeleteRestoreExpenseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57E302A8292C377F1FDB0DA /* DeleteRestoreExpenseTests.swift */; };
 		4F65E8C9C8CA37E1BCBF1F88 /* ExpenseListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF5DDE861C8092C3FC11850 /* ExpenseListView.swift */; };
 		5239BF55B0BC3F24A3D0EFC9 /* TotalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A85427044691F0F31A236D /* TotalsView.swift */; };
 		526EF03F23CBD088AA784E2B /* RootTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBA2C3590AAC7066CB20879 /* RootTabView.swift */; };
+		617C7550F80AAE5B14E58DD8 /* SquanderSchema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976ED0E1DA6F4795BDDDF8FA /* SquanderSchema.swift */; };
 		61AD045D1314B3A4747E872C /* SquanderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7844948FB4C41835C60D58F /* SquanderUITests.swift */; };
 		6C2FB437AC3003F4E66E9359 /* TestSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D035D86217CC54ACEE5D7E2 /* TestSupport.swift */; };
+		6D160D3D349AF3526039EEF3 /* ExpenseStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9B1B65D5B6EDE27F345389 /* ExpenseStore.swift */; };
 		6E4230A6B3E1CAA0DD99FB94 /* CategoryColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049B99168D778971D39C89BC /* CategoryColor.swift */; };
 		700B043BB72746D774CB0B6D /* SquanderCore in Frameworks */ = {isa = PBXBuildFile; productRef = D67014818CF73BA3D3C4F789 /* SquanderCore */; };
 		7411BBA63B39E22387416A91 /* SquanderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3270479B4CF8246B8775FD5 /* SquanderApp.swift */; };
 		76E6064DF3E371554AE6DC26 /* SquanderSchema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976ED0E1DA6F4795BDDDF8FA /* SquanderSchema.swift */; };
 		8516EBA0A357B20DC8B5B999 /* QueryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0F178E7D8F9E0614D04DDB /* QueryTests.swift */; };
+		85FF814538572004698923B6 /* SquanderCore in Frameworks */ = {isa = PBXBuildFile; productRef = DCF70CCAC940F63886881E55 /* SquanderCore */; };
 		91C667579C6C93FADB011427 /* CategoryPickerSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6679C3495608F05E7EE9DA8 /* CategoryPickerSheet.swift */; };
 		97AB99F4BFD6992F23D34ABF /* PersistenceRoundTripTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A505466A08BF575B1B072E /* PersistenceRoundTripTests.swift */; };
+		9DEFE806D1C860EB4AAB7618 /* SquanderWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AACD683647B36CD9C0FD1D7 /* SquanderWidget.swift */; };
 		B4BC14D5A7F9CF557E432D0C /* LabelMappingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82CB2A3C4D6FC43FF7E3731 /* LabelMappingTests.swift */; };
+		BA446F91941C8BC131FCE117 /* SquanderContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059177E967E6EC7F175B4CFA /* SquanderContainer.swift */; };
 		BBEF8E8E3EF6CC5F1AFC98CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 816A04A42758E7D516197CDB /* Assets.xcassets */; };
 		BC7749AB7794BA3DB0F0C661 /* CategoryCreationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95800EBC70AFBB541B04D577 /* CategoryCreationTests.swift */; };
 		BC8A73640B020EF5833E8C1A /* AmountDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EE31D029F5BC2DB062FD3B /* AmountDisplayView.swift */; };
 		C208424076069ED3BBDCE847 /* KeypadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15877F321A9363545092344B /* KeypadView.swift */; };
+		C26AF57ED86708E2F31DBA85 /* SquanderContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059177E967E6EC7F175B4CFA /* SquanderContainer.swift */; };
+		CD0F317EB920E590507196E1 /* SquanderWidgets.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 5593EE957CF8A28D0027CB1C /* SquanderWidgets.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D10F61E29203AF65C4D0A6D3 /* ContainerMigrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39B3F18C220A38ACE2649A3 /* ContainerMigrationTests.swift */; };
 		D1C0037452D84A84AC7CF55A /* ExpenseStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9B1B65D5B6EDE27F345389 /* ExpenseStore.swift */; };
 		D348BAC40A9EDBB6C061A35E /* SeedingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA16596B6FA710B497E8BB9 /* SeedingTests.swift */; };
 		E526F821EA290C8B42D0957A /* SaveExpenseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508FE8E440382AC18F9B33BA /* SaveExpenseTests.swift */; };
@@ -37,6 +48,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		113D7B43B458F7BD198F3575 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3190D1E370E50202E7DB757C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 38E841948EB7C12863A52D1B;
+			remoteInfo = SquanderWidgets;
+		};
 		3FB6B9C9F1C12566B252CAFD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3190D1E370E50202E7DB757C /* Project object */;
@@ -53,25 +71,50 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		7FFAAA752C0C832E44A7697E /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				CD0F317EB920E590507196E1 /* SquanderWidgets.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		049B99168D778971D39C89BC /* CategoryColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryColor.swift; sourceTree = "<group>"; };
+		057E435B6D18DE0764A50BB9 /* LogQuickExpenseIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogQuickExpenseIntent.swift; sourceTree = "<group>"; };
+		059177E967E6EC7F175B4CFA /* SquanderContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquanderContainer.swift; sourceTree = "<group>"; };
+		0D464708A96BDB8D327CE304 /* QuickLogWritePathTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickLogWritePathTests.swift; sourceTree = "<group>"; };
 		0FA16596B6FA710B497E8BB9 /* SeedingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedingTests.swift; sourceTree = "<group>"; };
 		15877F321A9363545092344B /* KeypadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeypadView.swift; sourceTree = "<group>"; };
+		1AACD683647B36CD9C0FD1D7 /* SquanderWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquanderWidget.swift; sourceTree = "<group>"; };
 		20EE31D029F5BC2DB062FD3B /* AmountDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmountDisplayView.swift; sourceTree = "<group>"; };
+		36F1E62868C0FB282B8E5FD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		3BE3065ADFB0879DEE9F5518 /* Squander.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Squander.entitlements; sourceTree = "<group>"; };
 		42A3FCBE791EA4B3AC272FAC /* SquanderUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = SquanderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		48048B12AA5C2C8ED6E442F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		508FE8E440382AC18F9B33BA /* SaveExpenseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveExpenseTests.swift; sourceTree = "<group>"; };
 		509D78D61FC9BC1E1F621093 /* DeleteCategoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteCategoryTests.swift; sourceTree = "<group>"; };
+		5593EE957CF8A28D0027CB1C /* SquanderWidgets.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = SquanderWidgets.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		57387E0A7832E950FDAD89D5 /* SquanderTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = SquanderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		58A505466A08BF575B1B072E /* PersistenceRoundTripTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceRoundTripTests.swift; sourceTree = "<group>"; };
 		5D035D86217CC54ACEE5D7E2 /* TestSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSupport.swift; sourceTree = "<group>"; };
 		674548BF223A6281DED78ACF /* ExpenseEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseEditView.swift; sourceTree = "<group>"; };
 		6EA8E2B679EDF4EA8F8DF890 /* Squander.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Squander.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F218053CAAB0FB1B3B5C93E /* SquanderWidgetsBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquanderWidgetsBundle.swift; sourceTree = "<group>"; };
+		6FC2DF881D488C2026B7D5C5 /* SquanderWidgets.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SquanderWidgets.entitlements; sourceTree = "<group>"; };
 		73CBDB3D61556D5FF1393D03 /* SquanderCore */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SquanderCore; path = SquanderCore; sourceTree = SOURCE_ROOT; };
 		816A04A42758E7D516197CDB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		94800179C5324FCA3F6DAD84 /* EntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryView.swift; sourceTree = "<group>"; };
 		95800EBC70AFBB541B04D577 /* CategoryCreationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCreationTests.swift; sourceTree = "<group>"; };
 		976ED0E1DA6F4795BDDDF8FA /* SquanderSchema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquanderSchema.swift; sourceTree = "<group>"; };
 		9B0F178E7D8F9E0614D04DDB /* QueryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryTests.swift; sourceTree = "<group>"; };
+		A39B3F18C220A38ACE2649A3 /* ContainerMigrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerMigrationTests.swift; sourceTree = "<group>"; };
 		AA9B1B65D5B6EDE27F345389 /* ExpenseStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseStore.swift; sourceTree = "<group>"; };
 		ADBA2C3590AAC7066CB20879 /* RootTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabView.swift; sourceTree = "<group>"; };
 		B238D140FBB7D4566B09C807 /* UpdateExpenseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateExpenseTests.swift; sourceTree = "<group>"; };
@@ -86,6 +129,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		1837FF25631236AD6C59EECA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				85FF814538572004698923B6 /* SquanderCore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1DCE8D3F8D13EED277D78210 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -112,6 +163,7 @@
 				87BD02DE5C993335B04CE656 /* Squander */,
 				685E945A889D4D2EF45D92E1 /* SquanderTests */,
 				2D172A108ECBE473BB0FE5C0 /* SquanderUITests */,
+				35C42F6CE28610C5CB60809C /* SquanderWidgets */,
 				5C1A651BC13AE45A56343931 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -124,12 +176,25 @@
 			path = SquanderUITests;
 			sourceTree = "<group>";
 		};
+		35C42F6CE28610C5CB60809C /* SquanderWidgets */ = {
+			isa = PBXGroup;
+			children = (
+				36F1E62868C0FB282B8E5FD7 /* Info.plist */,
+				057E435B6D18DE0764A50BB9 /* LogQuickExpenseIntent.swift */,
+				1AACD683647B36CD9C0FD1D7 /* SquanderWidget.swift */,
+				6FC2DF881D488C2026B7D5C5 /* SquanderWidgets.entitlements */,
+				6F218053CAAB0FB1B3B5C93E /* SquanderWidgetsBundle.swift */,
+			);
+			path = SquanderWidgets;
+			sourceTree = "<group>";
+		};
 		5C1A651BC13AE45A56343931 /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				6EA8E2B679EDF4EA8F8DF890 /* Squander.app */,
 				57387E0A7832E950FDAD89D5 /* SquanderTests.xctest */,
 				42A3FCBE791EA4B3AC272FAC /* SquanderUITests.xctest */,
+				5593EE957CF8A28D0027CB1C /* SquanderWidgets.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -138,11 +203,13 @@
 			isa = PBXGroup;
 			children = (
 				95800EBC70AFBB541B04D577 /* CategoryCreationTests.swift */,
+				A39B3F18C220A38ACE2649A3 /* ContainerMigrationTests.swift */,
 				509D78D61FC9BC1E1F621093 /* DeleteCategoryTests.swift */,
 				D57E302A8292C377F1FDB0DA /* DeleteRestoreExpenseTests.swift */,
 				F82CB2A3C4D6FC43FF7E3731 /* LabelMappingTests.swift */,
 				58A505466A08BF575B1B072E /* PersistenceRoundTripTests.swift */,
 				9B0F178E7D8F9E0614D04DDB /* QueryTests.swift */,
+				0D464708A96BDB8D327CE304 /* QuickLogWritePathTests.swift */,
 				508FE8E440382AC18F9B33BA /* SaveExpenseTests.swift */,
 				0FA16596B6FA710B497E8BB9 /* SeedingTests.swift */,
 				5D035D86217CC54ACEE5D7E2 /* TestSupport.swift */,
@@ -155,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				AA9B1B65D5B6EDE27F345389 /* ExpenseStore.swift */,
+				059177E967E6EC7F175B4CFA /* SquanderContainer.swift */,
 				976ED0E1DA6F4795BDDDF8FA /* SquanderSchema.swift */,
 			);
 			path = Models;
@@ -164,6 +232,8 @@
 			isa = PBXGroup;
 			children = (
 				816A04A42758E7D516197CDB /* Assets.xcassets */,
+				48048B12AA5C2C8ED6E442F0 /* Info.plist */,
+				3BE3065ADFB0879DEE9F5518 /* Squander.entitlements */,
 				D3270479B4CF8246B8775FD5 /* SquanderApp.swift */,
 				7D829BF52B88982127F8031C /* Models */,
 				D2E4348F495B024A475C0057 /* Views */,
@@ -199,6 +269,25 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		38E841948EB7C12863A52D1B /* SquanderWidgets */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F02ABEBC610FF48D3DF32063 /* Build configuration list for PBXNativeTarget "SquanderWidgets" */;
+			buildPhases = (
+				394BE18C4627ACF2E59AC7BB /* Sources */,
+				1837FF25631236AD6C59EECA /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SquanderWidgets;
+			packageProductDependencies = (
+				DCF70CCAC940F63886881E55 /* SquanderCore */,
+			);
+			productName = SquanderWidgets;
+			productReference = 5593EE957CF8A28D0027CB1C /* SquanderWidgets.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		82D58FBE293B8C3860DAED4D /* Squander */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D8655B214469B76AF06C6B41 /* Build configuration list for PBXNativeTarget "Squander" */;
@@ -206,10 +295,12 @@
 				09C0191282C84ACB67179E51 /* Sources */,
 				9687D98FF49A4F47BE12E7C0 /* Resources */,
 				1DCE8D3F8D13EED277D78210 /* Frameworks */,
+				7FFAAA752C0C832E44A7697E /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				C55AF66A2B1F20BD516827B0 /* PBXTargetDependency */,
 			);
 			name = Squander;
 			packageProductDependencies = (
@@ -266,6 +357,9 @@
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
+					38E841948EB7C12863A52D1B = {
+						ProvisioningStyle = Automatic;
+					};
 					82D58FBE293B8C3860DAED4D = {
 						ProvisioningStyle = Automatic;
 					};
@@ -298,6 +392,7 @@
 				82D58FBE293B8C3860DAED4D /* Squander */,
 				E2AB665974A900DC5C2FEFA7 /* SquanderTests */,
 				E2C1F58A223D503AF7001A49 /* SquanderUITests */,
+				38E841948EB7C12863A52D1B /* SquanderWidgets */,
 			);
 		};
 /* End PBXProject section */
@@ -329,8 +424,22 @@
 				C208424076069ED3BBDCE847 /* KeypadView.swift in Sources */,
 				526EF03F23CBD088AA784E2B /* RootTabView.swift in Sources */,
 				7411BBA63B39E22387416A91 /* SquanderApp.swift in Sources */,
+				BA446F91941C8BC131FCE117 /* SquanderContainer.swift in Sources */,
 				76E6064DF3E371554AE6DC26 /* SquanderSchema.swift in Sources */,
 				5239BF55B0BC3F24A3D0EFC9 /* TotalsView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		394BE18C4627ACF2E59AC7BB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6D160D3D349AF3526039EEF3 /* ExpenseStore.swift in Sources */,
+				153FD2DC3327D34B4741093E /* LogQuickExpenseIntent.swift in Sources */,
+				C26AF57ED86708E2F31DBA85 /* SquanderContainer.swift in Sources */,
+				617C7550F80AAE5B14E58DD8 /* SquanderSchema.swift in Sources */,
+				9DEFE806D1C860EB4AAB7618 /* SquanderWidget.swift in Sources */,
+				04DE0F9E7798E27DFBD4BA1E /* SquanderWidgetsBundle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,11 +456,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC7749AB7794BA3DB0F0C661 /* CategoryCreationTests.swift in Sources */,
+				D10F61E29203AF65C4D0A6D3 /* ContainerMigrationTests.swift in Sources */,
 				15E081D31428DC249BC93F97 /* DeleteCategoryTests.swift in Sources */,
 				3BE4FFE0640F2883A62787B2 /* DeleteRestoreExpenseTests.swift in Sources */,
 				B4BC14D5A7F9CF557E432D0C /* LabelMappingTests.swift in Sources */,
 				97AB99F4BFD6992F23D34ABF /* PersistenceRoundTripTests.swift in Sources */,
 				8516EBA0A357B20DC8B5B999 /* QueryTests.swift in Sources */,
+				2F9EA5554C0965E17D4C4C95 /* QuickLogWritePathTests.swift in Sources */,
 				E526F821EA290C8B42D0957A /* SaveExpenseTests.swift in Sources */,
 				D348BAC40A9EDBB6C061A35E /* SeedingTests.swift in Sources */,
 				6C2FB437AC3003F4E66E9359 /* TestSupport.swift in Sources */,
@@ -372,9 +483,33 @@
 			target = 82D58FBE293B8C3860DAED4D /* Squander */;
 			targetProxy = 3FB6B9C9F1C12566B252CAFD /* PBXContainerItemProxy */;
 		};
+		C55AF66A2B1F20BD516827B0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 38E841948EB7C12863A52D1B /* SquanderWidgets */;
+			targetProxy = 113D7B43B458F7BD198F3575 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		19E72E6AB99F9230D91088BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = SquanderWidgets/SquanderWidgets.entitlements;
+				CURRENT_PROJECT_VERSION = 1;
+				INFOPLIST_FILE = SquanderWidgets/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.jimfrederick.squander.widgets;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
 		34322BF07B6CA0F1382C0217 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -448,6 +583,25 @@
 			};
 			name = Debug;
 		};
+		7AABA87D02B9400D87FBB9B2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = SquanderWidgets/SquanderWidgets.entitlements;
+				CURRENT_PROJECT_VERSION = 1;
+				INFOPLIST_FILE = SquanderWidgets/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.jimfrederick.squander.widgets;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
 		7C33E395E769C76C2F670047 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -469,12 +623,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Squander/Squander.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = Squander;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_FILE = Squander/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -571,12 +723,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Squander/Squander.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = Squander;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_FILE = Squander/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -643,6 +793,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
+		F02ABEBC610FF48D3DF32063 /* Build configuration list for PBXNativeTarget "SquanderWidgets" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				19E72E6AB99F9230D91088BB /* Debug */,
+				7AABA87D02B9400D87FBB9B2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
@@ -658,6 +817,10 @@
 			productName = SquanderCore;
 		};
 		D67014818CF73BA3D3C4F789 /* SquanderCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SquanderCore;
+		};
+		DCF70CCAC940F63886881E55 /* SquanderCore */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SquanderCore;
 		};

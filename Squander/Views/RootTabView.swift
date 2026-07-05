@@ -25,6 +25,13 @@ struct RootTabView: View {
                 }
                 .tag(Tab.totals)
         }
+        // squander://entry — the widget's non-button tap target opens the
+        // app straight onto the keypad (spec: widget-quick-entry).
+        .onOpenURL { url in
+            if url.scheme == "squander", url.host == "entry" {
+                selectedTab = .entry
+            }
+        }
     }
 }
 

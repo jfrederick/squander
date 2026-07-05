@@ -59,6 +59,12 @@ When creating these workflows in App Store Connect for the first time:
       Cloud can only see shared schemes).
 - [ ] Set the app's **bundle identifier** in the Xcode Cloud product/app
       record to match the one configured in the Xcode project.
+- [ ] Register the **App Group** (`group.dev.jimfrederick.squander`) and the
+      **widget extension bundle id** (`dev.jimfrederick.squander.widgets`) in
+      the Apple Developer portal / App Store Connect, and confirm both the
+      app and `SquanderWidgets` targets are signed with the App Group
+      capability. Archive builds will fail until this manual, one-time
+      registration is done.
 - [ ] Select the **signing team** (Apple Developer Program team) and confirm
       Xcode Cloud is set to automatically manage signing, or provide the
       correct manual provisioning profile if manual signing is used.
