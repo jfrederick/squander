@@ -63,3 +63,4 @@ fastlane/test_output
 
 # Legacy xcodebuild -target output
 build/
+SpendthriftCore/build/

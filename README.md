@@ -10,6 +10,7 @@ Functionality is defined with [OpenSpec](https://github.com/Fission-AI/OpenSpec)
 
 - `openspec/changes/add-spending-tracker-mvp/` — the MVP change: proposal, design, capability specs, and implementation task list
 - Capabilities: expense entry, description autocomplete, categorization, spending totals, expense management, data persistence
+- Spending insights (`openspec/changes/add-spending-insights/`): trend chart on the Totals tab plus a month insights screen with category breakdown donut and month-over-month comparison
 
 ## Layout
 

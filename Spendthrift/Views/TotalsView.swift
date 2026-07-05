@@ -22,6 +22,32 @@ struct TotalsView: View {
 
     private var calendar: Calendar { .current }
 
+    private var corePeriodGranularity: PeriodGranularity {
+        switch granularity {
+        case .daily: return .daily
+        case .weekly: return .weekly
+        case .monthly: return .monthly
+        }
+    }
+
+    /// Fixed-length window for the trend chart (spec: 14 days / 12 weeks /
+    /// 12 months), zero periods included, oldest first.
+    private var chartSeries: [PeriodTotal] {
+        let pairs = expenses.map { (timestamp: $0.timestamp, amount: $0.amountDollars) }
+        let count: Int
+        switch granularity {
+        case .daily: count = 14
+        case .weekly, .monthly: count = 12
+        }
+        return PeriodSeries.periodSeries(
+            of: pairs,
+            granularity: corePeriodGranularity,
+            count: count,
+            endingAt: .now,
+            calendar: calendar
+        )
+    }
+
     private var periodTotals: [PeriodTotal] {
         let pairs = expenses.map { (timestamp: $0.timestamp, amount: $0.amountDollars) }
         switch granularity {
@@ -51,6 +77,10 @@ struct TotalsView: View {
                 .padding()
                 .accessibilityIdentifier("segmented-granularity")
 
+                TrendChartView(series: chartSeries, granularity: corePeriodGranularity)
+                    .padding(.horizontal)
+                    .padding(.bottom, 8)
+
                 if orderedTotals.isEmpty {
                     Spacer()
                     Text("No expenses yet")
@@ -72,6 +102,17 @@ struct TotalsView: View {
                 }
             }
             .navigationTitle("Totals")
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    NavigationLink {
+                        InsightsView()
+                    } label: {
+                        Image(systemName: "chart.pie")
+                    }
+                    .accessibilityIdentifier("insights-button")
+                    .accessibilityLabel("Insights")
+                }
+            }
         }
     }
 

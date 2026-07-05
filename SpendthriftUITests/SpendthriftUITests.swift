@@ -230,4 +230,67 @@ final class SpendthriftUITests: XCTestCase {
 
         XCTAssertTrue(element(app, id: "expense-row-0").waitForExistence(timeout: 5))
     }
+
+    // MARK: - Trend chart on Totals tab
+
+    func test_totalsTab_showsTrendChart_andFollowsGranularity() {
+        let app = launchedApp(seedData: true)
+
+        app.tabBars.buttons["Totals"].tap()
+
+        let chart = element(app, id: "trend-chart")
+        XCTAssertTrue(chart.waitForExistence(timeout: 5))
+
+        // Chart stays present when switching granularity.
+        app.buttons["Weekly"].tap()
+        XCTAssertTrue(element(app, id: "trend-chart").waitForExistence(timeout: 3))
+
+        app.buttons["Monthly"].tap()
+        XCTAssertTrue(element(app, id: "trend-chart").waitForExistence(timeout: 3))
+    }
+
+    // MARK: - Insights screen
+
+    func test_insights_opensShowingCurrentMonth() {
+        let app = launchedApp(seedData: true)
+
+        app.tabBars.buttons["Totals"].tap()
+
+        let insightsButton = element(app, id: "insights-button")
+        XCTAssertTrue(insightsButton.waitForExistence(timeout: 5))
+        insightsButton.tap()
+
+        // Current month has seeded expenses, so the breakdown is shown.
+        XCTAssertTrue(element(app, id: "insights-total").waitForExistence(timeout: 5))
+        XCTAssertTrue(element(app, id: "insights-comparison").exists)
+        XCTAssertTrue(element(app, id: "insights-category-row-0").exists)
+
+        // Forward stepping is disabled at the current month.
+        let nextButton = app.buttons["insights-next-month"]
+        XCTAssertTrue(nextButton.exists)
+        XCTAssertFalse(nextButton.isEnabled)
+    }
+
+    func test_insights_stepBackShowsPreviousMonthData() {
+        let app = launchedApp(seedData: true)
+
+        app.tabBars.buttons["Totals"].tap()
+
+        let insightsButton = element(app, id: "insights-button")
+        XCTAssertTrue(insightsButton.waitForExistence(timeout: 5))
+        insightsButton.tap()
+
+        let prevButton = app.buttons["insights-prev-month"]
+        XCTAssertTrue(prevButton.waitForExistence(timeout: 5))
+        prevButton.tap()
+
+        // Previous month contains the seeded $30 Food & Drink expense; its
+        // top-ranked category row must mention it.
+        let topRow = element(app, id: "insights-category-row-0")
+        XCTAssertTrue(topRow.waitForExistence(timeout: 5))
+        XCTAssertTrue(topRow.label.contains("30"))
+
+        // The next-month button re-enables when viewing a past month.
+        XCTAssertTrue(app.buttons["insights-next-month"].isEnabled)
+    }
 }
