@@ -114,9 +114,7 @@ final class SquanderUITests: XCTestCase {
         secondDescriptionField.typeText("cafe")
 
         // Give the view a brief moment to resolve the mapping lookup.
-        let categoryChipAbsent = NSPredicate(format: "exists == false")
-        expectation(for: categoryChipAbsent, evaluatedWith: element(app, id: "category-chip"), handler: nil)
-        waitForExpectations(timeout: 3)
+        XCTAssertTrue(element(app, id: "category-chip").waitForNonExistence(timeout: 3))
 
         let saveButton = app.buttons["save-button"]
         XCTAssertTrue(saveButton.isEnabled)
@@ -171,7 +169,7 @@ final class SquanderUITests: XCTestCase {
 
         app.tabBars.buttons["Totals"].tap()
 
-        let todayRow = app.cells["totals-row-0"]
+        let todayRow = element(app, id: "totals-row-0")
         XCTAssertTrue(todayRow.waitForExistence(timeout: 5))
         XCTAssertTrue(todayRow.label.contains("35") || todayRow.staticTexts.matching(NSPredicate(format: "label CONTAINS '35'")).count > 0)
     }
@@ -183,11 +181,11 @@ final class SquanderUITests: XCTestCase {
 
         app.tabBars.buttons["Totals"].tap()
 
-        let todayRow = app.cells["totals-row-0"]
+        let todayRow = element(app, id: "totals-row-0")
         XCTAssertTrue(todayRow.waitForExistence(timeout: 5))
         todayRow.tap()
 
-        let expenseRow = app.cells["expense-row-0"]
+        let expenseRow = element(app, id: "expense-row-0")
         XCTAssertTrue(expenseRow.waitForExistence(timeout: 5))
         expenseRow.tap()
 
@@ -204,7 +202,7 @@ final class SquanderUITests: XCTestCase {
         app.tabBars.buttons["Entry"].tap()
         app.tabBars.buttons["Totals"].tap()
 
-        XCTAssertTrue(app.cells["totals-row-0"].waitForExistence(timeout: 5))
+        XCTAssertTrue(element(app, id: "totals-row-0").waitForExistence(timeout: 5))
     }
 
     // MARK: - Swipe to delete with undo
@@ -214,11 +212,11 @@ final class SquanderUITests: XCTestCase {
 
         app.tabBars.buttons["Totals"].tap()
 
-        let todayRow = app.cells["totals-row-0"]
+        let todayRow = element(app, id: "totals-row-0")
         XCTAssertTrue(todayRow.waitForExistence(timeout: 5))
         todayRow.tap()
 
-        let expenseRow = app.cells["expense-row-0"]
+        let expenseRow = element(app, id: "expense-row-0")
         XCTAssertTrue(expenseRow.waitForExistence(timeout: 5))
         expenseRow.swipeLeft()
 
@@ -230,7 +228,7 @@ final class SquanderUITests: XCTestCase {
         XCTAssertTrue(undoButton.waitForExistence(timeout: 3))
         undoButton.tap()
 
-        XCTAssertTrue(app.cells["expense-row-0"].waitForExistence(timeout: 5))
+        XCTAssertTrue(element(app, id: "expense-row-0").waitForExistence(timeout: 5))
     }
 
     // MARK: - Trend chart on Totals tab
