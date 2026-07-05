@@ -1,4 +1,0 @@
-module SquanderCore {
-header "SquanderCore-Swift.h"
-export *
-}

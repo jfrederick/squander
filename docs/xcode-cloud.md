@@ -6,7 +6,7 @@ settings so they can be recreated (or audited) there. The only in-repo pieces
 are `ci_scripts/ci_post_clone.sh` and the committed `.xcodeproj`/schemes that
 the workflows build against.
 
-Scheme name: **Squander**
+Scheme name: **Spendthrift**
 
 ## Workflow 1: Pull Request
 
@@ -15,12 +15,12 @@ Scheme name: **Squander**
 - **Environment:** Latest available Xcode release; latest iOS simulator
   runtime.
 - **Actions:**
-  1. Build the `Squander` scheme (Debug-ish/CI configuration) for iPhone
+  1. Build the `Spendthrift` scheme (Debug-ish/CI configuration) for iPhone
      simulator (latest iPhone model available in the Xcode Cloud image).
-  2. Run tests via the `Squander` scheme's test action:
-     - `SquanderTests` (unit tests, SwiftData/model-layer coverage — see
-       `SquanderTests/`)
-     - `SquanderUITests` (UI tests)
+  2. Run tests via the `Spendthrift` scheme's test action:
+     - `SpendthriftTests` (unit tests, SwiftData/model-layer coverage — see
+       `SpendthriftTests/`)
+     - `SpendthriftUITests` (UI tests)
   3. Fail the workflow (block the PR) on any build or test failure.
 - **Post-actions:** None required (no TestFlight distribution for PR builds).
 
@@ -31,20 +31,20 @@ Scheme name: **Squander**
   runtime for the test phase, plus a device/archive destination for the
   archive phase.
 - **Actions:**
-  1. Build + test the `Squander` scheme, same as the PR workflow.
-  2. Archive the `Squander` scheme.
+  1. Build + test the `Spendthrift` scheme, same as the PR workflow.
+  2. Archive the `Spendthrift` scheme.
   3. Distribute the archive to **TestFlight (Internal Testing)** only — no
      App Store submission from this workflow.
 
-## SquanderCore package tests
+## SpendthriftCore package tests
 
-`SquanderCore` is a local Swift package with its own `SquanderCoreTests`
+`SpendthriftCore` is a local Swift package with its own `SpendthriftCoreTests`
 target (run today via `swift test` locally). Xcode Cloud only runs the test
-plan/targets attached to the `Squander` scheme's Test action — it does not
+plan/targets attached to the `Spendthrift` scheme's Test action — it does not
 automatically discover package tests.
 
-**Recommendation:** in Xcode, edit the `Squander` scheme and add
-`SquanderCoreTests` as an additional test target under the Test action (Edit
+**Recommendation:** in Xcode, edit the `Spendthrift` scheme and add
+`SpendthriftCoreTests` as an additional test target under the Test action (Edit
 Scheme -> Test -> Info -> "+"). Once added, both workflows above pick it up
 automatically with no further Xcode Cloud configuration, since they simply
 run "the scheme's tests."
@@ -55,14 +55,14 @@ When creating these workflows in App Store Connect for the first time:
 
 - [ ] Add the repository to App Store Connect / Xcode Cloud and grant it
       access (GitHub App or equivalent).
-- [ ] Confirm the `Squander` scheme is marked **Shared** in Xcode (Xcode
+- [ ] Confirm the `Spendthrift` scheme is marked **Shared** in Xcode (Xcode
       Cloud can only see shared schemes).
 - [ ] Set the app's **bundle identifier** in the Xcode Cloud product/app
       record to match the one configured in the Xcode project.
 - [ ] Select the **signing team** (Apple Developer Program team) and confirm
       Xcode Cloud is set to automatically manage signing, or provide the
       correct manual provisioning profile if manual signing is used.
-- [ ] Add `SquanderCoreTests` to the `Squander` scheme's Test action (see
+- [ ] Add `SpendthriftCoreTests` to the `Spendthrift` scheme's Test action (see
       above) so package-level tests run in CI too.
 - [ ] Create the **PR workflow** per the settings above; run it once against
       an open PR to confirm it triggers and passes.
@@ -73,7 +73,7 @@ When creating these workflows in App Store Connect for the first time:
 
 ## Pre-release TODO
 
-- **App icon is a placeholder.** `Squander/Assets.xcassets/AppIcon.appiconset`
+- **App icon is a placeholder.** `Spendthrift/Assets.xcassets/AppIcon.appiconset`
   currently declares only the `Contents.json` entry (a single 1024x1024
   universal iOS slot) with no image asset behind it. The Release workflow's
   archive step will fail App Store validation without a real icon image in

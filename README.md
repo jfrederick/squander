@@ -1,4 +1,4 @@
-# squander
+# spendthrift
 
 A personal iOS spending tracker built for speed: open the app, punch in a whole-dollar amount on the keypad, type a short description ("cafe", "electrolytes"), confirm a category, done. The app learns — descriptions autocomplete from past expenses, and known descriptions are categorized automatically. A Totals tab shows daily, weekly, and monthly spending.
 
@@ -13,11 +13,11 @@ Functionality is defined with [OpenSpec](https://github.com/Fission-AI/OpenSpec)
 
 ## Layout
 
-- `SquanderCore/` — pure-logic Swift package (keypad state, autocomplete ranking, category heuristics, totals aggregation); unit-tested with Swift Testing
-- `Squander/` — SwiftUI app target: SwiftData models (`Models/`), views (`Views/`)
-- `SquanderTests/` — SwiftData store tests against in-memory containers
-- `SquanderUITests/` — XCUITest flows (launch-to-keypad, full capture, totals, edit/delete)
-- `project.yml` — [XcodeGen](https://github.com/yonaskolb/XcodeGen) definition; regenerate `Squander.xcodeproj` with `xcodegen` after adding files
+- `SpendthriftCore/` — pure-logic Swift package (keypad state, autocomplete ranking, category heuristics, totals aggregation); unit-tested with Swift Testing
+- `Spendthrift/` — SwiftUI app target: SwiftData models (`Models/`), views (`Views/`)
+- `SpendthriftTests/` — SwiftData store tests against in-memory containers
+- `SpendthriftUITests/` — XCUITest flows (launch-to-keypad, full capture, totals, edit/delete)
+- `project.yml` — [XcodeGen](https://github.com/yonaskolb/XcodeGen) definition; regenerate `Spendthrift.xcodeproj` with `xcodegen` after adding files
 
 ## Stack
 

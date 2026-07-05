@@ -1,7 +1,7 @@
 schema: spec-driven
 
 context: |
-  Squander: a personal iOS app for fast spending entry and simple totals.
+  Spendthrift: a personal iOS app for fast spending entry and simple totals.
 
   Tech stack:
   - Swift 5.10+, SwiftUI, iOS 17+ target

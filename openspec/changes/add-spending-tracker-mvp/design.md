@@ -51,9 +51,9 @@ Rationale: deterministic, testable with plain unit tests, zero dependencies. A C
 Fetch expenses in a date window and group with `Calendar.current` (`startOfDay`, `dateInterval(of: .weekOfYear/.month)`). No denormalized totals tables — data volume (personal spending, thousands of rows at most) makes on-the-fly aggregation trivial. Locale-aware week start comes from `Calendar.current.firstWeekday` for free.
 
 ### D8: Project layout and testing
-- `Squander/` app target: `Models/`, `Services/` (CategorySuggester, AutocompleteProvider, TotalsAggregator — all pure logic, no UI), `Views/`
-- `SquanderTests/` unit tests: every spec scenario for services/model becomes a test; SwiftData tested against in-memory `ModelContainer`
-- `SquanderUITests/`: launch-to-keypad, full entry flow, tab navigation
+- `Spendthrift/` app target: `Models/`, `Services/` (CategorySuggester, AutocompleteProvider, TotalsAggregator — all pure logic, no UI), `Views/`
+- `SpendthriftTests/` unit tests: every spec scenario for services/model becomes a test; SwiftData tested against in-memory `ModelContainer`
+- `SpendthriftUITests/`: launch-to-keypad, full entry flow, tab navigation
 Pure-logic services exist precisely so spec scenarios are testable without UI automation.
 
 ### D9: Xcode Cloud

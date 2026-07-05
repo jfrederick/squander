@@ -2,7 +2,7 @@
 
 ## Why
 
-Logging an expense in existing tracker apps takes too many taps, so expenses go unlogged and totals become meaningless. Squander needs a first version whose whole design is speed: open the app, type a dollar amount, type a short description, confirm a category, done — with the app learning from past entries to make each subsequent entry faster.
+Logging an expense in existing tracker apps takes too many taps, so expenses go unlogged and totals become meaningless. Spendthrift needs a first version whose whole design is speed: open the app, type a dollar amount, type a short description, confirm a category, done — with the app learning from past entries to make each subsequent entry faster.
 
 ## What Changes
 

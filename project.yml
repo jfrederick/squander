@@ -1,33 +1,33 @@
-# Xcode project definition. Regenerate Squander.xcodeproj with `xcodegen`
+# Xcode project definition. Regenerate Spendthrift.xcodeproj with `xcodegen`
 # after adding/removing files. The generated project is committed so CI and
 # other machines don't need xcodegen installed.
-name: Squander
+name: Spendthrift
 options:
   bundleIdPrefix: dev.jimfrederick
   deploymentTarget:
     iOS: "17.0"
   createIntermediateGroups: true
 packages:
-  SquanderCore:
-    path: SquanderCore
+  SpendthriftCore:
+    path: SpendthriftCore
 settings:
   base:
     SWIFT_VERSION: "6.0"
     CODE_SIGN_STYLE: Automatic
 targets:
-  Squander:
+  Spendthrift:
     type: application
     platform: iOS
     sources:
-      - Squander
+      - Spendthrift
     dependencies:
-      - package: SquanderCore
+      - package: SpendthriftCore
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: dev.jimfrederick.squander
+        PRODUCT_BUNDLE_IDENTIFIER: dev.jimfrederick.spendthrift
         TARGETED_DEVICE_FAMILY: "1"
         GENERATE_INFOPLIST_FILE: YES
-        INFOPLIST_KEY_CFBundleDisplayName: Squander
+        INFOPLIST_KEY_CFBundleDisplayName: Spendthrift
         # Generated empty launch screen: nothing may delay keypad readiness.
         INFOPLIST_KEY_UILaunchScreen_Generation: YES
         INFOPLIST_KEY_UISupportedInterfaceOrientations: UIInterfaceOrientationPortrait
@@ -35,28 +35,28 @@ targets:
         ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
         CURRENT_PROJECT_VERSION: 1
         MARKETING_VERSION: 0.1.0
-  SquanderTests:
+  SpendthriftTests:
     type: bundle.unit-test
     platform: iOS
     sources:
-      - SquanderTests
+      - SpendthriftTests
     dependencies:
-      - target: Squander
-      - package: SquanderCore
-  SquanderUITests:
+      - target: Spendthrift
+      - package: SpendthriftCore
+  SpendthriftUITests:
     type: bundle.ui-testing
     platform: iOS
     sources:
-      - SquanderUITests
+      - SpendthriftUITests
     dependencies:
-      - target: Squander
+      - target: Spendthrift
 schemes:
-  Squander:
+  Spendthrift:
     build:
       targets:
-        Squander: all
+        Spendthrift: all
     test:
       gatherCoverageData: true
       targets:
-        - SquanderTests
-        - SquanderUITests
+        - SpendthriftTests
+        - SpendthriftUITests
