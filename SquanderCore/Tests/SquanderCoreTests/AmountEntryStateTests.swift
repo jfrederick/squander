@@ -114,3 +114,30 @@ struct AmountEntryStateTests {
         #expect(AmountEntryState.maxAmount == 99_999)
     }
 }
+
+@Suite("AmountEntryState restoration")
+struct AmountEntryStateRestorationTests {
+    @Test("init(amount:) restores a saved amount exactly")
+    func initRestoresAmount() {
+        #expect(AmountEntryState(amount: 42).amount == 42)
+        #expect(AmountEntryState(amount: 99_999).amount == 99_999)
+        #expect(AmountEntryState(amount: 1).amount == 1)
+    }
+
+    @Test("init(amount:) clamps out-of-range values")
+    func initClampsOutOfRange() {
+        #expect(AmountEntryState(amount: -5).amount == 0)
+        #expect(AmountEntryState(amount: 100_000).amount == 99_999)
+    }
+
+    @Test("restored state behaves like typed state")
+    func restoredStateBehavesNormally() {
+        var state = AmountEntryState(amount: 42)
+        state.tapDigit(1)
+        #expect(state.amount == 421)
+        state.tapDelete()
+        state.tapDelete()
+        #expect(state.amount == 4)
+        #expect(AmountEntryState(amount: 0).canProceed == false)
+    }
+}

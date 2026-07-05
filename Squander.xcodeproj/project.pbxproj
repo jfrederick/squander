@@ -32,6 +32,7 @@
 		D1C0037452D84A84AC7CF55A /* ExpenseStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9B1B65D5B6EDE27F345389 /* ExpenseStore.swift */; };
 		D348BAC40A9EDBB6C061A35E /* SeedingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA16596B6FA710B497E8BB9 /* SeedingTests.swift */; };
 		E526F821EA290C8B42D0957A /* SaveExpenseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508FE8E440382AC18F9B33BA /* SaveExpenseTests.swift */; };
+		E8EB939CDEC854901FDC7F9D /* Formatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5AC2402ADC18092DD498B0F /* Formatting.swift */; };
 		F6CE175D1321D17A19FC8D05 /* ExpenseEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 674548BF223A6281DED78ACF /* ExpenseEditView.swift */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +79,7 @@
 		D0A85427044691F0F31A236D /* TotalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalsView.swift; sourceTree = "<group>"; };
 		D3270479B4CF8246B8775FD5 /* SquanderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquanderApp.swift; sourceTree = "<group>"; };
 		D57E302A8292C377F1FDB0DA /* DeleteRestoreExpenseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteRestoreExpenseTests.swift; sourceTree = "<group>"; };
+		E5AC2402ADC18092DD498B0F /* Formatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatting.swift; sourceTree = "<group>"; };
 		E7844948FB4C41835C60D58F /* SquanderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquanderUITests.swift; sourceTree = "<group>"; };
 		F6679C3495608F05E7EE9DA8 /* CategoryPickerSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPickerSheet.swift; sourceTree = "<group>"; };
 		F82CB2A3C4D6FC43FF7E3731 /* LabelMappingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelMappingTests.swift; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 				94800179C5324FCA3F6DAD84 /* EntryView.swift */,
 				674548BF223A6281DED78ACF /* ExpenseEditView.swift */,
 				CAF5DDE861C8092C3FC11850 /* ExpenseListView.swift */,
+				E5AC2402ADC18092DD498B0F /* Formatting.swift */,
 				15877F321A9363545092344B /* KeypadView.swift */,
 				ADBA2C3590AAC7066CB20879 /* RootTabView.swift */,
 				D0A85427044691F0F31A236D /* TotalsView.swift */,
@@ -322,6 +325,7 @@
 				F6CE175D1321D17A19FC8D05 /* ExpenseEditView.swift in Sources */,
 				4F65E8C9C8CA37E1BCBF1F88 /* ExpenseListView.swift in Sources */,
 				D1C0037452D84A84AC7CF55A /* ExpenseStore.swift in Sources */,
+				E8EB939CDEC854901FDC7F9D /* Formatting.swift in Sources */,
 				C208424076069ED3BBDCE847 /* KeypadView.swift in Sources */,
 				526EF03F23CBD088AA784E2B /* RootTabView.swift in Sources */,
 				7411BBA63B39E22387416A91 /* SquanderApp.swift in Sources */,

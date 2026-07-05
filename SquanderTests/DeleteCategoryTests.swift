@@ -28,4 +28,15 @@ struct DeleteCategoryTests {
         let jacketMapping = try #require(try store.mapping(forNormalizedLabel: "jacket"))
         #expect(jacketMapping.category?.name == "Other")
     }
+
+    @Test func deleteCategoryRefusesToDeleteFallbackOther() throws {
+        let (_, store) = try TestSupport.makeStore()
+        try store.seedIfNeeded()
+        let other = try #require(try store.category(named: "Other"))
+        let replacement = try #require(try store.category(named: "Home"))
+        #expect(throws: ExpenseStore.CategoryDeletionError.cannotDeleteFallback) {
+            try store.deleteCategory(other, reassigningTo: replacement)
+        }
+        #expect(try store.category(named: "Other") != nil)
+    }
 }

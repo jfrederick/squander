@@ -81,7 +81,7 @@ struct TotalsView: View {
             Text(title(for: periodTotal, isCurrent: isCurrent))
                 .fontWeight(isCurrent ? .bold : .regular)
             Spacer()
-            Text(periodTotal.total.formatted(.currency(code: "USD").precision(.fractionLength(0))))
+            Text(periodTotal.total.wholeDollars)
                 .fontWeight(isCurrent ? .bold : .regular)
         }
         .foregroundStyle(isCurrent ? Color.accentColor : .primary)
@@ -99,13 +99,7 @@ struct TotalsView: View {
     }
 
     private func dayTitle(for date: Date, isCurrent: Bool) -> String {
-        if calendar.isDateInToday(date) {
-            return "Today"
-        }
-        if calendar.isDateInYesterday(date) {
-            return "Yesterday"
-        }
-        return date.formatted(.dateTime.month(.abbreviated).day().year())
+        dayLabel(for: date, calendar: calendar)
     }
 
     private func weekTitle(for interval: DateInterval) -> String {

@@ -13,6 +13,13 @@ public struct AmountEntryState: Equatable, Sendable {
         self.amount = 0
     }
 
+    /// Restores entry state from a previously saved amount (e.g. when
+    /// editing an existing expense). Values outside 0...maxAmount are
+    /// clamped so the state's invariants hold regardless of input.
+    public init(amount: Int) {
+        self.amount = min(max(amount, 0), Self.maxAmount)
+    }
+
     /// Appends `digit` to the amount, ignoring invalid input.
     ///
     /// - A leading zero (when `amount == 0` and `digit == 0`) is ignored.

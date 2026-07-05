@@ -169,7 +169,7 @@ final class SquanderUITests: XCTestCase {
         saveButton.tap()
         XCTAssertTrue(element(app, id: "save-confirmation").waitForExistence(timeout: 3))
 
-        app.tabBars.buttons["tab-totals"].tap()
+        app.tabBars.buttons["Totals"].tap()
 
         let todayRow = app.cells["totals-row-0"]
         XCTAssertTrue(todayRow.waitForExistence(timeout: 5))
@@ -181,7 +181,7 @@ final class SquanderUITests: XCTestCase {
     func test_editExpense_updatesTotals() {
         let app = launchedApp(seedData: true)
 
-        app.tabBars.buttons["tab-totals"].tap()
+        app.tabBars.buttons["Totals"].tap()
 
         let todayRow = app.cells["totals-row-0"]
         XCTAssertTrue(todayRow.waitForExistence(timeout: 5))
@@ -201,8 +201,8 @@ final class SquanderUITests: XCTestCase {
 
         // Back on the drill-in list, then back to Totals; total should reflect the edit.
         app.navigationBars.buttons.element(boundBy: 0).tap()
-        app.tabBars.buttons["tab-entry"].tap()
-        app.tabBars.buttons["tab-totals"].tap()
+        app.tabBars.buttons["Entry"].tap()
+        app.tabBars.buttons["Totals"].tap()
 
         XCTAssertTrue(app.cells["totals-row-0"].waitForExistence(timeout: 5))
     }
@@ -212,7 +212,7 @@ final class SquanderUITests: XCTestCase {
     func test_swipeToDelete_withUndo() {
         let app = launchedApp(seedData: true)
 
-        app.tabBars.buttons["tab-totals"].tap()
+        app.tabBars.buttons["Totals"].tap()
 
         let todayRow = app.cells["totals-row-0"]
         XCTAssertTrue(todayRow.waitForExistence(timeout: 5))

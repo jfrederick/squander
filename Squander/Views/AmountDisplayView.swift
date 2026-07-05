@@ -7,7 +7,7 @@ struct AmountDisplayView: View {
     let amountDollars: Int
 
     private var formattedAmount: String {
-        amountDollars.formatted(.currency(code: "USD").precision(.fractionLength(0)))
+        amountDollars.wholeDollars
     }
 
     var body: some View {

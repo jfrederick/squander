@@ -52,4 +52,21 @@ struct UpdateExpenseTests {
         let thirdCafeExpense = try store.saveExpense(amountDollars: 6, label: "cafe", category: entertainment, timestamp: FixedDate.d3)
         #expect(thirdCafeExpense.category?.name == "Entertainment")
     }
+
+    @Test func amountOnlyEditDoesNotBumpMappingRanking() throws {
+        let (_, store) = try TestSupport.makeStore()
+        try store.seedIfNeeded()
+        let food = try #require(try store.category(named: "Food & Drink"))
+        let expense = try store.saveExpense(amountDollars: 12, label: "cafe", category: food, timestamp: FixedDate.d1)
+        let before = try #require(try store.mapping(forNormalizedLabel: "cafe"))
+        #expect(before.useCount == 1)
+        let beforeUsedAt = before.lastUsedAt
+
+        try store.updateExpense(expense, amountDollars: 21, label: "cafe", category: food)
+
+        let after = try #require(try store.mapping(forNormalizedLabel: "cafe"))
+        #expect(after.useCount == 1)
+        #expect(after.lastUsedAt == beforeUsedAt)
+        #expect(expense.amountDollars == 21)
+    }
 }

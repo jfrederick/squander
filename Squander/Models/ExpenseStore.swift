@@ -47,6 +47,12 @@ final class ExpenseStore {
         case invalidName
     }
 
+    enum CategoryDeletionError: Error, Equatable {
+        /// "Other" is the guaranteed fallback for restores and suggestions
+        /// and must always exist.
+        case cannotDeleteFallback
+    }
+
     @discardableResult
     func createCategory(named rawName: String) throws -> Category {
         let name = rawName.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -68,6 +74,9 @@ final class ExpenseStore {
     /// integrity). Label mappings follow to the replacement as well.
     func deleteCategory(_ category: Category, reassigningTo replacement: Category) throws {
         guard category !== replacement else { return }
+        guard normalize(category.name) != normalize(CategoryRules.fallbackCategoryName) else {
+            throw CategoryDeletionError.cannotDeleteFallback
+        }
         for expense in category.expenses ?? [] {
             expense.category = replacement
         }
@@ -89,9 +98,16 @@ final class ExpenseStore {
     /// Upserts the description→category memory: bumps use count and recency,
     /// refreshes display casing, and repoints the category.
     func recordMapping(label: String, category: Category, at date: Date) throws {
+        upsertMapping(label: label, category: category, at: date)
+        try context.save()
+    }
+
+    /// Same upsert without the save, so the capture path can flush the
+    /// expense insert and the mapping change in a single save.
+    private func upsertMapping(label: String, category: Category, at date: Date) {
         let key = normalize(label)
         guard !key.isEmpty else { return }
-        if let existing = try mapping(forNormalizedLabel: key) {
+        if let existing = try? mapping(forNormalizedLabel: key) {
             existing.useCount += 1
             existing.lastUsedAt = date
             existing.displayLabel = label
@@ -99,7 +115,6 @@ final class ExpenseStore {
         } else {
             context.insert(LabelMapping(normalizedLabel: key, displayLabel: label, category: category, lastUsedAt: date))
         }
-        try context.save()
     }
 
     /// Autocomplete input: the pre-deduplicated, pre-ranked mapping table.
@@ -131,8 +146,8 @@ final class ExpenseStore {
             category: category
         )
         context.insert(expense)
+        upsertMapping(label: trimmed, category: category, at: timestamp)
         try context.save()
-        try recordMapping(label: trimmed, category: category, at: timestamp)
         return expense
     }
 
@@ -154,12 +169,19 @@ final class ExpenseStore {
     /// untouched.
     func updateExpense(_ expense: Expense, amountDollars: Int, label: String, category: Category) throws {
         let trimmed = label.trimmingCharacters(in: .whitespacesAndNewlines)
+        let normalized = normalize(trimmed)
+        // Only a label or category correction is a mapping event; an
+        // amount-only (or no-op) edit must not inflate the label's
+        // autocomplete frequency/recency ranking.
+        let mappingChanged = normalized != expense.normalizedLabel || category !== expense.category
         expense.amountDollars = amountDollars
         expense.label = trimmed
-        expense.normalizedLabel = normalize(trimmed)
+        expense.normalizedLabel = normalized
         expense.category = category
+        if mappingChanged {
+            upsertMapping(label: trimmed, category: category, at: .now)
+        }
         try context.save()
-        try recordMapping(label: trimmed, category: category, at: .now)
     }
 
     /// Everything needed to undo a delete.

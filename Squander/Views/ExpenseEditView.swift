@@ -18,20 +18,9 @@ struct ExpenseEditView: View {
 
     init(expense: Expense) {
         self.expense = expense
-        _amountState = State(initialValue: Self.amountState(for: expense.amountDollars))
+        _amountState = State(initialValue: AmountEntryState(amount: expense.amountDollars))
         _description = State(initialValue: expense.label)
         _selectedCategory = State(initialValue: expense.category)
-    }
-
-    /// Builds an AmountEntryState matching `amount` by replaying its digits,
-    /// since AmountEntryState only exposes tapDigit/tapDelete (no direct
-    /// setter), per the fixed SquanderCore contract.
-    private static func amountState(for amount: Int) -> AmountEntryState {
-        var state = AmountEntryState()
-        for digit in String(amount).compactMap({ $0.wholeNumberValue }) {
-            state.tapDigit(digit)
-        }
-        return state
     }
 
     var body: some View {

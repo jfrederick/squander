@@ -19,9 +19,16 @@ struct EntryView: View {
     @State private var showCategoryArea = false
     @State private var selectedCategory: Category?
     @State private var suggestedCategoryName: String = CategoryRules.fallbackCategoryName
+    /// Normalized description the user explicitly picked a category for; a
+    /// manual pick only survives as long as the description stays the same.
+    @State private var pickedForKey: String?
     @State private var showCategoryPicker = false
     @State private var showConfirmation = false
     @State private var backgroundedAt: Date?
+    /// Mapping table snapshot, fetched once per description step (not per
+    /// keystroke) and refreshed after each save.
+    @State private var cachedStats: [LabelStat] = []
+    @State private var cachedPairs: [(normalizedLabel: String, category: String)] = []
 
     @FocusState private var isDescriptionFieldFocused: Bool
 
@@ -62,6 +69,14 @@ struct EntryView: View {
             }
             .sheet(isPresented: $showCategoryPicker) {
                 CategoryPickerSheet(selectedCategory: $selectedCategory)
+            }
+            .onChange(of: selectedCategory) { _, newValue in
+                // A pick made in the sheet is pinned to the current text; if
+                // the description changes afterwards it gets re-evaluated.
+                if showCategoryPicker, newValue != nil,
+                   let trimmed = DescriptionRules.trimmedIfValid(description) {
+                    pickedForKey = normalize(trimmed)
+                }
             }
         }
         .onChange(of: scenePhase) { _, newPhase in
@@ -111,8 +126,11 @@ struct EntryView: View {
                 }
                 .onAppear {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
-                        isDescriptionFieldFocused = true
+                        if step == .description {
+                            isDescriptionFieldFocused = true
+                        }
                     }
+                    loadMappingData()
                     refreshSuggestions()
                     refreshCategoryArea()
                 }
@@ -184,22 +202,25 @@ struct EntryView: View {
     }
 
     private var canSave: Bool {
-        guard DescriptionRules.trimmedIfValid(description) != nil else { return false }
-        if showCategoryArea {
-            return selectedCategory != nil || !suggestedCategoryName.isEmpty
-        }
-        return true
+        DescriptionRules.trimmedIfValid(description) != nil
     }
 
     // MARK: - Suggestions & category resolution
 
-    private func refreshSuggestions() {
+    /// One fetch per description step instead of two full-table fetches per
+    /// keystroke; refreshed after every save via the step's onAppear.
+    private func loadMappingData() {
         guard let store else {
-            suggestions = []
+            cachedStats = []
+            cachedPairs = []
             return
         }
-        let stats = (try? store.labelStats()) ?? []
-        suggestions = Autocomplete.suggestions(for: description, from: stats)
+        cachedStats = (try? store.labelStats()) ?? []
+        cachedPairs = (try? store.mappingPairs()) ?? []
+    }
+
+    private func refreshSuggestions() {
+        suggestions = Autocomplete.suggestions(for: description, from: cachedStats)
     }
 
     /// Determines whether the description already has a remembered category
@@ -209,6 +230,7 @@ struct EntryView: View {
         guard let trimmed = DescriptionRules.trimmedIfValid(description) else {
             showCategoryArea = false
             selectedCategory = nil
+            pickedForKey = nil
             return
         }
 
@@ -221,11 +243,12 @@ struct EntryView: View {
         }
 
         showCategoryArea = true
-        if selectedCategory == nil {
-            let pairs = (try? store.mappingPairs()) ?? []
-            let suggestedName = CategorySuggester.suggest(normalizedLabel: key, mappings: pairs)
+        // A stale selection (from a mapping hit or a manual pick for a
+        // different description) must not leak onto this description.
+        if pickedForKey != key {
+            selectedCategory = nil
+            suggestedCategoryName = CategorySuggester.suggest(normalizedLabel: key, mappings: cachedPairs)
                 ?? CategoryRules.fallbackCategoryName
-            suggestedCategoryName = suggestedName
         }
     }
 
@@ -247,7 +270,7 @@ struct EntryView: View {
         guard let store else { return }
         guard let trimmed = DescriptionRules.trimmedIfValid(description) else { return }
 
-        let category: Category?
+        var category: Category?
         if showCategoryArea {
             if let selectedCategory {
                 category = selectedCategory
@@ -258,6 +281,11 @@ struct EntryView: View {
             // Known description path: use the remembered mapping's category.
             let key = normalize(trimmed)
             category = (((try? store.mapping(forNormalizedLabel: key)) ?? nil))?.category
+        }
+        if category == nil {
+            // Never discard a save silently: "Other" is the guaranteed
+            // fallback (the store refuses to delete it).
+            category = try? store.category(named: CategoryRules.fallbackCategoryName)
         }
 
         guard let resolvedCategory = category else { return }
@@ -280,6 +308,7 @@ struct EntryView: View {
         showCategoryArea = false
         selectedCategory = nil
         suggestedCategoryName = CategoryRules.fallbackCategoryName
+        pickedForKey = nil
     }
 
     private func showSaveConfirmation() {

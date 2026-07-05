@@ -8,12 +8,14 @@ struct ExpenseListView: View {
     let title: String
 
     @Environment(\.expenseStore) private var store
-    @Environment(\.modelContext) private var modelContext
 
     @Query private var allExpenses: [Expense]
 
     @State private var pendingUndoSnapshot: ExpenseStore.DeletedExpenseSnapshot?
     @State private var showUndoBar = false
+    /// Each delete bumps this; a dismiss timer only clears state if no newer
+    /// delete has replaced the snapshot it was scheduled for.
+    @State private var undoGeneration = 0
 
     init(interval: DateInterval, title: String) {
         self.interval = interval
@@ -42,7 +44,8 @@ struct ExpenseListView: View {
     }
 
     var body: some View {
-        ZStack(alignment: .bottom) {
+        let indices = indexByID
+        return ZStack(alignment: .bottom) {
             List {
                 ForEach(sections) { section in
                     Section(header: Text(dayHeaderText(for: section.day))) {
@@ -50,9 +53,9 @@ struct ExpenseListView: View {
                             NavigationLink {
                                 ExpenseEditView(expense: expense)
                             } label: {
-                                expenseRow(expense, globalIndex: globalIndex(of: expense))
+                                expenseRow(expense, globalIndex: globalIndex(of: expense, in: indices))
                             }
-                            .accessibilityIdentifier("expense-row-\(globalIndex(of: expense))")
+                            .accessibilityIdentifier("expense-row-\(globalIndex(of: expense, in: indices))")
                             .swipeActions(edge: .trailing) {
                                 Button(role: .destructive) {
                                     delete(expense)
@@ -74,8 +77,14 @@ struct ExpenseListView: View {
         .navigationBarTitleDisplayMode(.inline)
     }
 
-    private func globalIndex(of expense: Expense) -> Int {
-        allExpenses.firstIndex(where: { $0.persistentModelID == expense.persistentModelID }) ?? 0
+    /// One O(n) pass instead of an O(n) scan per row; -1 (never a real row)
+    /// for anything transiently absent so identifiers can't collide.
+    private var indexByID: [PersistentIdentifier: Int] {
+        Dictionary(uniqueKeysWithValues: allExpenses.enumerated().map { ($1.persistentModelID, $0) })
+    }
+
+    private func globalIndex(of expense: Expense, in indices: [PersistentIdentifier: Int]) -> Int {
+        indices[expense.persistentModelID] ?? -1
     }
 
     private func expenseRow(_ expense: Expense, globalIndex: Int) -> some View {
@@ -94,20 +103,14 @@ struct ExpenseListView: View {
                 }
             }
             Spacer()
-            Text(expense.amountDollars.formatted(.currency(code: "USD").precision(.fractionLength(0))))
+            Text(expense.amountDollars.wholeDollars)
                 .fontWeight(.medium)
         }
         .accessibilityElement(children: .combine)
     }
 
     private func dayHeaderText(for day: Date) -> String {
-        if calendar.isDateInToday(day) {
-            return "Today"
-        }
-        if calendar.isDateInYesterday(day) {
-            return "Yesterday"
-        }
-        return day.formatted(.dateTime.month(.abbreviated).day().year())
+        dayLabel(for: day, calendar: calendar)
     }
 
     private func delete(_ expense: Expense) {
@@ -116,8 +119,11 @@ struct ExpenseListView: View {
             let snapshot = try store.deleteExpense(expense)
             pendingUndoSnapshot = snapshot
             showUndoBar = true
+            undoGeneration += 1
+            let generation = undoGeneration
             DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
-                if pendingUndoSnapshot != nil {
+                // A later delete owns the bar now; leave its window alone.
+                if undoGeneration == generation, pendingUndoSnapshot != nil {
                     pendingUndoSnapshot = nil
                     showUndoBar = false
                 }
