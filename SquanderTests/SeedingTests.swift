@@ -18,7 +18,7 @@ struct SeedingTests {
         #expect(names == expectedNames)
         #expect(names.first == "Food & Drink")
         #expect(names.last == "Other")
-        #expect(categories.allSatisfy(\.isSeeded))
+        #expect(categories.allSatisfy { $0.isSeeded })
     }
 
     @Test func seedIfNeededIsIdempotent() throws {

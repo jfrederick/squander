@@ -1,0 +1,51 @@
+{
+  "" : {
+    "const-values" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/SquanderCore/build/SquanderCore.build/Release-iphonesimulator/SquanderCore.build/Objects-normal/arm64/SquanderCore-primary.swiftconstvalues",
+    "dependencies" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/SquanderCore/build/SquanderCore.build/Release-iphonesimulator/SquanderCore.build/Objects-normal/arm64/SquanderCore-primary.d",
+    "diagnostics" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/SquanderCore/build/SquanderCore.build/Release-iphonesimulator/SquanderCore.build/Objects-normal/arm64/SquanderCore-primary.dia",
+    "emit-module-dependencies" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/SquanderCore/build/SquanderCore.build/Release-iphonesimulator/SquanderCore.build/Objects-normal/arm64/SquanderCore-primary-emit-module.d",
+    "emit-module-diagnostics" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/SquanderCore/build/SquanderCore.build/Release-iphonesimulator/SquanderCore.build/Objects-normal/arm64/SquanderCore-primary-emit-module.dia",
+    "pch" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/SquanderCore/build/SquanderCore.build/Release-iphonesimulator/SquanderCore.build/Objects-normal/arm64/SquanderCore-primary-Bridging-header.pch",
+    "swift-dependencies" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/SquanderCore/build/SquanderCore.build/Release-iphonesimulator/SquanderCore.build/Objects-normal/arm64/SquanderCore-primary.swiftdeps"
+  },
+  "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/SquanderCore/Sources/SquanderCore/AmountEntryState.swift" : {
+    "index-unit-output-path" : "/SquanderCore.build/Release-iphonesimulator/SquanderCore.build/Objects-normal/arm64/AmountEntryState.o",
+    "llvm-bc" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/SquanderCore/build/SquanderCore.build/Release-iphonesimulator/SquanderCore.build/Objects-normal/arm64/AmountEntryState.bc",
+    "object" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/SquanderCore/build/SquanderCore.build/Release-iphonesimulator/SquanderCore.build/Objects-normal/arm64/AmountEntryState.o"
+  },
+  "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/SquanderCore/Sources/SquanderCore/Autocomplete.swift" : {
+    "index-unit-output-path" : "/SquanderCore.build/Release-iphonesimulator/SquanderCore.build/Objects-normal/arm64/Autocomplete.o",
+    "llvm-bc" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/SquanderCore/build/SquanderCore.build/Release-iphonesimulator/SquanderCore.build/Objects-normal/arm64/Autocomplete.bc",
+    "object" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/SquanderCore/build/SquanderCore.build/Release-iphonesimulator/SquanderCore.build/Objects-normal/arm64/Autocomplete.o"
+  },
+  "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/SquanderCore/Sources/SquanderCore/CategoryRules.swift" : {
+    "index-unit-output-path" : "/SquanderCore.build/Release-iphonesimulator/SquanderCore.build/Objects-normal/arm64/CategoryRules.o",
+    "llvm-bc" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/SquanderCore/build/SquanderCore.build/Release-iphonesimulator/SquanderCore.build/Objects-normal/arm64/CategoryRules.bc",
+    "object" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/SquanderCore/build/SquanderCore.build/Release-iphonesimulator/SquanderCore.build/Objects-normal/arm64/CategoryRules.o"
+  },
+  "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/SquanderCore/Sources/SquanderCore/CategorySuggester.swift" : {
+    "index-unit-output-path" : "/SquanderCore.build/Release-iphonesimulator/SquanderCore.build/Objects-normal/arm64/CategorySuggester.o",
+    "llvm-bc" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/SquanderCore/build/SquanderCore.build/Release-iphonesimulator/SquanderCore.build/Objects-normal/arm64/CategorySuggester.bc",
+    "object" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/SquanderCore/build/SquanderCore.build/Release-iphonesimulator/SquanderCore.build/Objects-normal/arm64/CategorySuggester.o"
+  },
+  "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/SquanderCore/Sources/SquanderCore/DescriptionRules.swift" : {
+    "index-unit-output-path" : "/SquanderCore.build/Release-iphonesimulator/SquanderCore.build/Objects-normal/arm64/DescriptionRules.o",
+    "llvm-bc" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/SquanderCore/build/SquanderCore.build/Release-iphonesimulator/SquanderCore.build/Objects-normal/arm64/DescriptionRules.bc",
+    "object" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/SquanderCore/build/SquanderCore.build/Release-iphonesimulator/SquanderCore.build/Objects-normal/arm64/DescriptionRules.o"
+  },
+  "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/SquanderCore/Sources/SquanderCore/EntryExpiry.swift" : {
+    "index-unit-output-path" : "/SquanderCore.build/Release-iphonesimulator/SquanderCore.build/Objects-normal/arm64/EntryExpiry.o",
+    "llvm-bc" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/SquanderCore/build/SquanderCore.build/Release-iphonesimulator/SquanderCore.build/Objects-normal/arm64/EntryExpiry.bc",
+    "object" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/SquanderCore/build/SquanderCore.build/Release-iphonesimulator/SquanderCore.build/Objects-normal/arm64/EntryExpiry.o"
+  },
+  "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/SquanderCore/Sources/SquanderCore/Normalize.swift" : {
+    "index-unit-output-path" : "/SquanderCore.build/Release-iphonesimulator/SquanderCore.build/Objects-normal/arm64/Normalize.o",
+    "llvm-bc" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/SquanderCore/build/SquanderCore.build/Release-iphonesimulator/SquanderCore.build/Objects-normal/arm64/Normalize.bc",
+    "object" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/SquanderCore/build/SquanderCore.build/Release-iphonesimulator/SquanderCore.build/Objects-normal/arm64/Normalize.o"
+  },
+  "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/SquanderCore/Sources/SquanderCore/TotalsAggregator.swift" : {
+    "index-unit-output-path" : "/SquanderCore.build/Release-iphonesimulator/SquanderCore.build/Objects-normal/arm64/TotalsAggregator.o",
+    "llvm-bc" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/SquanderCore/build/SquanderCore.build/Release-iphonesimulator/SquanderCore.build/Objects-normal/arm64/TotalsAggregator.bc",
+    "object" : "/Users/jim/dev/jim/squander/.claude/worktrees/busy-dewdney-52f35e/SquanderCore/build/SquanderCore.build/Release-iphonesimulator/SquanderCore.build/Objects-normal/arm64/TotalsAggregator.o"
+  }
+}
