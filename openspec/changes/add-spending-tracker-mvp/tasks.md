@@ -2,7 +2,7 @@
 
 ## 1. Project Setup
 
-- [ ] 1.1 Create Xcode project "Squander" (SwiftUI app, iOS 17 target, iPhone only) with SquanderTests and SquanderUITests targets
+- [ ] 1.1 Create Xcode project "Spendthrift" (SwiftUI app, iOS 17 target, iPhone only) with SpendthriftTests and SpendthriftUITests targets
 - [ ] 1.2 Add folder structure per design (Models/, Services/, Views/) and commit a buildable empty app
 - [ ] 1.3 Add `ci_scripts/ci_post_clone.sh` and `docs/xcode-cloud.md`; configure Xcode Cloud PR workflow (build + tests on PRs to main)
 - [ ] 1.4 Configure Xcode Cloud release workflow (main → archive → TestFlight internal)
