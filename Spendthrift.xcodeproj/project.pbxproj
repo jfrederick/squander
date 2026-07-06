@@ -111,7 +111,7 @@
 		3E5C1F97AC697CEFBEEF2524 /* DigestPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigestPreferences.swift; sourceTree = "<group>"; };
 		42E9759E99311AF4AB6BA443 /* ExpenseListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseListView.swift; sourceTree = "<group>"; };
 		48015141AA3D0F674583861B /* SpendthriftSchema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendthriftSchema.swift; sourceTree = "<group>"; };
-		480A33D5B34D440CBBAE083D /* Spendthrift.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Spendthrift.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		480A33D5B34D440CBBAE083D /* Spendthrift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spendthrift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BFC5DD7509C68CDE17F1209 /* EntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryView.swift; sourceTree = "<group>"; };
 		4F0F4D65A141FC36ABC554A5 /* InsightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightsView.swift; sourceTree = "<group>"; };
 		521DB77333253001D384DAE0 /* ExpenseEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseEditView.swift; sourceTree = "<group>"; };
@@ -125,7 +125,7 @@
 		8A1C87E64487EE27411EE9D4 /* TrendChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendChartView.swift; sourceTree = "<group>"; };
 		9277F16FD232FECA3534A17A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		927BE360E7FC816404E3C961 /* SpendthriftTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = SpendthriftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9832B2EB96393399834E2481 /* SpendthriftWidgets.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = SpendthriftWidgets.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		9832B2EB96393399834E2481 /* SpendthriftWidgets.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SpendthriftWidgets.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DA8F8F1B81C5645ED10069E /* SaveExpenseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveExpenseTests.swift; sourceTree = "<group>"; };
 		A602C37176D5D29E6D8E0FAE /* LabelMappingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelMappingTests.swift; sourceTree = "<group>"; };
 		B146E7FE873510A1997E53DB /* SpendthriftUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = SpendthriftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -139,7 +139,7 @@
 		D84C3F72ABD4011042841C4A /* SeedingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedingTests.swift; sourceTree = "<group>"; };
 		D9794C1B380A160FBB9D9462 /* KeypadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeypadView.swift; sourceTree = "<group>"; };
 		DC5E7170BD47E97C0A000E01 /* CategoryColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryColor.swift; sourceTree = "<group>"; };
-		EE195C135997DB702FCB19A0 /* SpendthriftCore */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SpendthriftCore; path = SpendthriftCore; sourceTree = SOURCE_ROOT; };
+		EE195C135997DB702FCB19A0 /* SpendthriftCore */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SpendthriftCore; sourceTree = SOURCE_ROOT; };
 		F9E7E78A4E982A9EF86087BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		FE71B7CCEE6CDFE977CA332E /* ExpenseStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -544,6 +544,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = SpendthriftWidgets/SpendthriftWidgets.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WFF6AVLZNB;
 				INFOPLIST_FILE = SpendthriftWidgets/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -566,6 +567,7 @@
 				CODE_SIGN_ENTITLEMENTS = Spendthrift/Spendthrift.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WFF6AVLZNB;
 				INFOPLIST_FILE = Spendthrift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -618,6 +620,7 @@
 				CODE_SIGN_ENTITLEMENTS = Spendthrift/Spendthrift.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WFF6AVLZNB;
 				INFOPLIST_FILE = Spendthrift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -651,6 +654,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = SpendthriftWidgets/SpendthriftWidgets.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WFF6AVLZNB;
 				INFOPLIST_FILE = SpendthriftWidgets/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
