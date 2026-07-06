@@ -230,4 +230,22 @@ final class ExpenseStore {
         descriptor.fetchLimit = 1
         return try context.fetch(descriptor).first
     }
+
+    /// The one category-resolution policy for non-interactive entry paths
+    /// (widget quick-log, voice): remembered mapping first, optionally the
+    /// heuristic suggester (for paths where novel descriptions are common),
+    /// then the guaranteed "Other" fallback. Nil only if "Other" is missing,
+    /// which seeding rules out.
+    func resolveCategory(forLabel label: String, consultSuggester: Bool) throws -> Category? {
+        let normalized = normalize(label)
+        if let remembered = try mapping(forNormalizedLabel: normalized)?.category {
+            return remembered
+        }
+        if consultSuggester,
+           let suggestedName = CategorySuggester.suggest(normalizedLabel: normalized, mappings: try mappingPairs()),
+           let suggested = try category(named: suggestedName) {
+            return suggested
+        }
+        return try category(named: CategoryRules.fallbackCategoryName)
+    }
 }
