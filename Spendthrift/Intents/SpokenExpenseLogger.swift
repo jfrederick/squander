@@ -13,23 +13,16 @@ enum SpokenExpenseLogger {
         case unparseable
     }
 
-    /// Voice descriptions are frequently novel, so unlike the widget's
-    /// remembered-preset path this also consults the heuristic suggester
-    /// before falling back to "Other".
+    /// Voice descriptions are frequently novel, so this path consults the
+    /// heuristic suggester (consultSuggester: true), unlike the widget's
+    /// remembered-preset quick log.
     static func log(utterance: String, store: ExpenseStore, timestamp: Date = .now) throws -> Outcome {
-        guard let spoken = SpokenExpenseParser.parse(utterance) else { return .unparseable }
+        guard let spoken = SpokenExpenseParser.parse(utterance),
+              let label = DescriptionRules.trimmedIfValid(spoken.label),
+              let category = try store.resolveCategory(forLabel: label, consultSuggester: true)
+        else { return .unparseable }
 
-        let normalized = normalize(spoken.label)
-        var category = try store.mapping(forNormalizedLabel: normalized)?.category
-        if category == nil,
-           let suggested = CategorySuggester.suggest(normalizedLabel: normalized, mappings: try store.mappingPairs()) {
-            category = try store.category(named: suggested)
-        }
-        guard let category = try category ?? store.category(named: CategoryRules.fallbackCategoryName) else {
-            return .unparseable
-        }
-
-        try store.saveExpense(amountDollars: spoken.amountDollars, label: spoken.label, category: category, timestamp: timestamp)
-        return .logged(amountDollars: spoken.amountDollars, label: spoken.label, categoryName: category.name)
+        try store.saveExpense(amountDollars: spoken.amountDollars, label: label, category: category, timestamp: timestamp)
+        return .logged(amountDollars: spoken.amountDollars, label: label, categoryName: category.name)
     }
 }

@@ -116,11 +116,65 @@ struct SpokenExpenseParserTests {
 
     // MARK: - Casing and whitespace
 
-    @Test("mixed case and extra whitespace")
+    @Test("mixed case matches keywords but label keeps spoken casing")
     func mixedCase() {
         let result = SpokenExpenseParser.parse("  Six Dollar   Coffee ")
         #expect(result?.amountDollars == 6)
+        #expect(result?.label == "Coffee")
+    }
+
+    @Test("proper-noun casing preserved in label")
+    func properNounCasing() {
+        let result = SpokenExpenseParser.parse("log $40 Trader Joes")
+        #expect(result?.amountDollars == 40)
+        #expect(result?.label == "Trader Joes")
+    }
+
+    // MARK: - Transcription variants
+
+    @Test("colloquial hundreds: twelve hundred")
+    func colloquialHundreds() {
+        let result = SpokenExpenseParser.parse("twelve hundred rent")
+        #expect(result?.amountDollars == 1200)
+        #expect(result?.label == "rent")
+    }
+
+    @Test("colloquial hundreds with currency word: fifteen hundred dollars")
+    func colloquialHundredsCurrency() {
+        let result = SpokenExpenseParser.parse("fifteen hundred dollars rent")
+        #expect(result?.amountDollars == 1500)
+        #expect(result?.label == "rent")
+    }
+
+    @Test("grouping comma in digits")
+    func groupingComma() {
+        let result = SpokenExpenseParser.parse("$1,200 rent")
+        #expect(result?.amountDollars == 1200)
+        #expect(result?.label == "rent")
+    }
+
+    @Test("stranded dollar sign dropped")
+    func strandedDollarSign() {
+        let result = SpokenExpenseParser.parse("$ 6 coffee")
+        #expect(result?.amountDollars == 6)
         #expect(result?.label == "coffee")
+    }
+
+    @Test("leading I-phrase filler stripped")
+    func iPhraseFiller() {
+        let result = SpokenExpenseParser.parse("I spent 14 on lunch")
+        #expect(result?.amountDollars == 14)
+        #expect(result?.label == "lunch")
+    }
+
+    @Test("a buck / a dollar mean one")
+    func aBuck() {
+        let bucks = SpokenExpenseParser.parse("spent a buck on coffee")
+        #expect(bucks?.amountDollars == 1)
+        #expect(bucks?.label == "coffee")
+        let dollar = SpokenExpenseParser.parse("a dollar coffee")
+        #expect(dollar?.amountDollars == 1)
+        #expect(dollar?.label == "coffee")
     }
 
     // MARK: - Amount binds to currency word

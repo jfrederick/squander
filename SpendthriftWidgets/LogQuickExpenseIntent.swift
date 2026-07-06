@@ -37,9 +37,10 @@ struct LogQuickExpenseIntent: AppIntent {
         try store.seedIfNeeded()
 
         // The description's remembered category; "Other" if it's gone.
-        let category = try store.mapping(forNormalizedLabel: normalize(label))?.category
-            ?? store.category(named: CategoryRules.fallbackCategoryName)
-        guard let category else { return .result() }
+        // Presets are remembered by construction, so no suggester here.
+        guard let category = try store.resolveCategory(forLabel: label, consultSuggester: false) else {
+            return .result()
+        }
 
         try store.saveExpense(amountDollars: amount, label: label, category: category)
 

@@ -53,6 +53,31 @@ struct SpokenExpenseLoggerTests {
         #expect(mapping?.category?.name == "Transport")
     }
 
+    @Test func longDescriptionClampedToRulesMax() throws {
+        let (_, store) = try TestSupport.makeStore()
+        try store.seedIfNeeded()
+        let rambling = "$20 that thing we bought at the farmers market on Saturday with Jane"
+
+        let outcome = try SpokenExpenseLogger.log(utterance: rambling, store: store, timestamp: FixedDate.d1)
+
+        guard case let .logged(_, label, _) = outcome else {
+            Issue.record("expected .logged, got \(outcome)")
+            return
+        }
+        #expect(label.count == DescriptionRules.maxLength)
+        #expect(try store.allExpenses().first?.label == label)
+    }
+
+    @Test func labelCasingPreservedInMapping() throws {
+        let (_, store) = try TestSupport.makeStore()
+        try store.seedIfNeeded()
+
+        let outcome = try SpokenExpenseLogger.log(utterance: "log $40 Trader Joes", store: store, timestamp: FixedDate.d1)
+
+        #expect(outcome == .logged(amountDollars: 40, label: "Trader Joes", categoryName: "Other"))
+        #expect(try store.allExpenses().first?.label == "Trader Joes")
+    }
+
     @Test func unparseableWritesNothing() throws {
         let (_, store) = try TestSupport.makeStore()
         try store.seedIfNeeded()
