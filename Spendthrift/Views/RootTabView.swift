@@ -1,9 +1,8 @@
 import SwiftUI
 
-/// App root: Entry and Totals side by side in a horizontal pager with a
-/// custom bottom tab bar. A pager (not the system TabView) because saving an
-/// expense slides to Totals with a horizontal animation, which TabView cannot
-/// do; both screens stay alive so an in-progress entry survives tab switches.
+/// App root: a two-tab layout with Entry as the default tab (design D4/D8).
+/// Saving an expense switches to the Totals tab; the transient save
+/// confirmation overlays whichever tab is showing.
 struct RootTabView: View {
     @State private var selectedTab: Tab = .entry
     @State private var showSaveConfirmation = false
@@ -18,19 +17,27 @@ struct RootTabView: View {
 
     var body: some View {
         ZStack {
-            VStack(spacing: 0) {
-                pager
-                tabBar
+            TabView(selection: $selectedTab) {
+                // No identifiers on tabItem labels — SwiftUI doesn't surface
+                // them on the rendered tab-bar buttons; tests must use
+                // app.tabBars.buttons["Entry"/"Totals"] by visible label.
+                EntryView(onSaved: handleExpenseSaved)
+                    .tabItem {
+                        Label("Entry", systemImage: "square.grid.3x3.fill")
+                    }
+                    .tag(Tab.entry)
+
+                TotalsView()
+                    .tabItem {
+                        Label("Totals", systemImage: "chart.bar.fill")
+                    }
+                    .tag(Tab.totals)
             }
 
             if showSaveConfirmation {
                 saveConfirmationOverlay
             }
         }
-        // No .ignoresSafeArea(.keyboard) here: it would strip keyboard
-        // avoidance from every screen in the pager (the edit form's fields
-        // would stay covered). The tab bar riding above the keyboard is the
-        // lesser evil — it stays reachable.
         // spendthrift://entry — the widget's non-button tap target opens the
         // app straight onto the keypad (spec: widget-quick-entry).
         .onOpenURL { url in
@@ -38,34 +45,11 @@ struct RootTabView: View {
                 selectedTab = .entry
             }
         }
-    }
-
-    private var pager: some View {
-        GeometryReader { geometry in
-            HStack(spacing: 0) {
-                EntryView(onSaved: handleExpenseSaved)
-                    .frame(width: geometry.size.width)
-                    .accessibilityHidden(selectedTab != .entry)
-                TotalsView()
-                    .frame(width: geometry.size.width)
-                    .accessibilityHidden(selectedTab != .totals)
-            }
-            .offset(x: selectedTab == .entry ? 0 : -geometry.size.width)
-            // The off-screen page stays mounted (state survives switches) but
-            // must not be reachable — by taps or the accessibility tree, which
-            // would otherwise surface duplicate elements from both pages.
-        }
-    }
-
-    private func handleExpenseSaved() {
-        withAnimation(.easeInOut(duration: 0.3)) {
-            selectedTab = .totals
-            showSaveConfirmation = true
-        }
-        confirmationGeneration += 1
-        let generation = confirmationGeneration
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-            if confirmationGeneration == generation {
+        // Returning to Entry is the "next expense" signal — drop the
+        // confirmation early rather than letting it hover over the keypad.
+        .onChange(of: selectedTab) { _, newTab in
+            if newTab == .entry, showSaveConfirmation {
+                confirmationGeneration += 1
                 withAnimation {
                     showSaveConfirmation = false
                 }
@@ -73,38 +57,22 @@ struct RootTabView: View {
         }
     }
 
-    // MARK: - Tab bar
-
-    private var tabBar: some View {
-        HStack {
-            tabButton(for: .entry, label: "Entry", systemImage: "square.grid.3x3.fill", identifier: "tab-entry")
-            tabButton(for: .totals, label: "Totals", systemImage: "chart.bar.fill", identifier: "tab-totals")
+    private func handleExpenseSaved() {
+        selectedTab = .totals
+        withAnimation {
+            showSaveConfirmation = true
         }
-        .padding(.top, 8)
-        .overlay(alignment: .top) { Divider() }
-        .background(.bar, ignoresSafeAreaEdges: .bottom)
-    }
-
-    private func tabButton(for tab: Tab, label: String, systemImage: String, identifier: String) -> some View {
-        Button {
-            withAnimation(.easeInOut(duration: 0.3)) {
-                selectedTab = tab
+        confirmationGeneration += 1
+        let generation = confirmationGeneration
+        // 3s (not shorter): UI-test accessibility snapshots take ~2s+ after
+        // the Save tap; a briefer window outlives its own assertion.
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+            if confirmationGeneration == generation {
+                withAnimation {
+                    showSaveConfirmation = false
+                }
             }
-        } label: {
-            VStack(spacing: 4) {
-                Image(systemName: systemImage)
-                    .font(.system(size: 20))
-                Text(label)
-                    .font(.caption2)
-            }
-            .frame(maxWidth: .infinity)
-            .contentShape(Rectangle())
         }
-        .buttonStyle(.plain)
-        .foregroundStyle(selectedTab == tab ? Color.accentColor : Color.secondary)
-        .accessibilityIdentifier(identifier)
-        .accessibilityLabel(label)
-        .accessibilityAddTraits(selectedTab == tab ? [.isSelected] : [])
     }
 
     // MARK: - Save confirmation (spec: non-blocking, no tap to dismiss)

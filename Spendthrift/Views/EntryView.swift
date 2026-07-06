@@ -35,20 +35,36 @@ struct EntryView: View {
 
     @FocusState private var isDescriptionFieldFocused: Bool
 
+    /// One timing for both slide directions of the step transition.
+    private let stepAnimation: Animation = .easeInOut(duration: 0.3)
+
     var body: some View {
         NavigationStack {
             VStack(spacing: 24) {
                 AmountDisplayView(amountDollars: amountState.amount)
                     .padding(.top, 32)
 
-                if step == .description {
-                    descriptionSection
-                }
-
-                Spacer()
-
-                if step == .amount {
-                    amountStepControls
+                // The two steps swap in one region with a horizontal slide:
+                // the keypad exits toward leading, the description step
+                // enters from trailing (and the reverse on Back).
+                // Not .clipped(): clipping would erase the slide at the
+                // padded interior edge (instead of the screen edge) and can
+                // hide-but-keep-hittable content when the keyboard compresses
+                // the layout on small devices.
+                ZStack {
+                    if step == .amount {
+                        VStack(spacing: 0) {
+                            Spacer()
+                            amountStepControls
+                        }
+                        .transition(.move(edge: .leading))
+                    } else {
+                        VStack(spacing: 0) {
+                            descriptionSection
+                            Spacer()
+                        }
+                        .transition(.move(edge: .trailing))
+                    }
                 }
             }
             .padding()
@@ -58,7 +74,12 @@ struct EntryView: View {
                 if step == .description {
                     ToolbarItem(placement: .cancellationAction) {
                         Button("Back") {
-                            step = .amount
+                            // Drop the keyboard first so the keypad doesn't
+                            // slide into a keyboard-compressed layout.
+                            isDescriptionFieldFocused = false
+                            withAnimation(stepAnimation) {
+                                step = .amount
+                            }
                         }
                         .accessibilityIdentifier("back-button")
                     }
@@ -99,7 +120,9 @@ struct EntryView: View {
 
     private func advanceToDescription() {
         guard amountState.canProceed else { return }
-        step = .description
+        withAnimation(stepAnimation) {
+            step = .description
+        }
         isDescriptionFieldFocused = true
     }
 

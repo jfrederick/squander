@@ -7,8 +7,8 @@
 
 ## 2. Post-save navigation
 
-- [x] 2.1 Replace the root `TabView` with a horizontal pager (both screens stay alive, preserving in-progress entry state) plus a custom bottom tab bar with `tab-entry`/`tab-totals` identifiers
-- [x] 2.2 On save, EntryView notifies the root, which slides to Totals with animation and shows the transient checkmark confirmation over Totals; entry resets behind the navigation
+- [x] 2.1 Animate the entry steps as a horizontal slide: keypad exits toward leading on Next, description/category/save enter from trailing (reversed on Back)
+- [x] 2.2 On save, EntryView notifies the root (system `TabView`), which switches to the Totals tab and shows the transient checkmark confirmation over Totals; entry resets behind the navigation
 - [x] 2.3 Keep the `spendthrift://entry` deep link selecting the Entry screen
 
 ## 3. Category filter on the period expense list
@@ -18,6 +18,6 @@
 
 ## 4. Tests
 
-- [x] 4.1 Update UI tests: tab switches use the custom bar identifiers; post-save flow lands on Totals; seeded data gains Transport $5 today (today's seeded total 20 → 25, full-flow assertion 35 → 40)
+- [x] 4.1 Update UI tests: tab switches use `app.tabBars.buttons` by visible label; post-save flow lands on Totals; Back preserves the amount; seeded data gains Transport $5 today (today's seeded total 20 → 25, full-flow assertion 35 → 40)
 - [x] 4.2 New UI test: drill into today, filter to Transport, see only the Transport expense, reset to All Categories
 - [x] 4.3 Full simulator gate passes
