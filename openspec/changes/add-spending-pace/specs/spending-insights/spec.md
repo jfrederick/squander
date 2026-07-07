@@ -22,5 +22,9 @@ The Spent tab SHALL display a one-line spending pace above the trend chart whene
 - **THEN** the pace line shows the projection in a neutral color without a baseline
 
 #### Scenario: Empty month hides the pace
-- **WHEN** the current calendar month has no expenses
+- **WHEN** the current calendar month has no expenses through today
 - **THEN** no pace line is shown
+
+#### Scenario: Future-dated expenses are not elapsed spending
+- **WHEN** $10 was spent by the 3rd and a $300 expense in the same month is dated the 25th
+- **THEN** the projection extrapolates only the $10 month-to-date (the $300 is not counted as elapsed and re-projected)

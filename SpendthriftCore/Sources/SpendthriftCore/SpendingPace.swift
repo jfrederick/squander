@@ -22,10 +22,23 @@ public struct SpendingPace: Equatable, Sendable {
     public let previousMonthTotal: Int?
 
     public var standing: Standing {
-        guard let previousMonthTotal else { return .noBaseline }
+        // The <= 0 guard defends direct construction: compute() never emits
+        // a zero baseline, but the memberwise init is public.
+        guard let previousMonthTotal, previousMonthTotal > 0 else { return .noBaseline }
         if projectedTotal > previousMonthTotal { return .over }
         if projectedTotal < previousMonthTotal { return .under }
         return .even
+    }
+
+    /// The Spent tab's header sentence. Copy lives in Core — like
+    /// WeeklyDigest.body(for:) — so the wording and the baseline-inclusion
+    /// rule are unit-tested, not just substring-checked by a UI test.
+    public var headline: String {
+        var line = "On pace for \(projectedTotal.wholeDollars) this month"
+        if let previousMonthTotal {
+            line += " · last month \(previousMonthTotal.wholeDollars)"
+        }
+        return line
     }
 
     public init(monthToDate: Int, projectedTotal: Int, previousMonthTotal: Int?) {
@@ -52,8 +65,18 @@ public struct SpendingPace: Equatable, Sendable {
                 .reduce(0) { $0 + $1.amount }
         }
 
-        let monthToDate = total(in: monthInterval)
-        guard monthToDate > 0 else { return nil }
+        // Month-to-date means through the end of asOf's day — a future-dated
+        // expense later in the month is not elapsed spending and must not be
+        // extrapolated (it would count once as spent and again as projected).
+        let dayEnd = calendar.date(byAdding: .day, value: 1, to: calendar.startOfDay(for: date)) ?? date
+        let toDateInterval = DateInterval(start: monthInterval.start, end: min(dayEnd, monthInterval.end))
+        let hasExpensesToDate = expenses.contains {
+            toDateInterval.start <= $0.timestamp && $0.timestamp < toDateInterval.end
+        }
+        // Spec: the line shows when the month has at least one expense (not
+        // "a positive total" — same thing today, but encode the spec's rule).
+        guard hasExpensesToDate else { return nil }
+        let monthToDate = total(in: toDateInterval)
 
         // Today counts as a full elapsed day so day 1 projects 31x a first
         // coffee rather than dividing by zero.

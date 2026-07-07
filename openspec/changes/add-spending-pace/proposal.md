@@ -24,7 +24,9 @@ remember last month's total to know whether you're running hot.
 
 ## Impact
 
-- `SpendthriftCore`: new `SpendingPace` + tests (composes `MonthComparison`'s
-  baseline semantics: a zero previous month is "no baseline").
+- `SpendthriftCore`: new `SpendingPace` + tests. It mirrors (by convention,
+  not composition) `MonthComparison`'s baseline rule: a previous month with
+  no expenses is "no baseline", never a $0 baseline. A change to that rule
+  must be applied in both places.
 - Views: `TotalsView` header line only.
 - UI tests: pace line present with seeded data.

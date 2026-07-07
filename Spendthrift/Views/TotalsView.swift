@@ -155,16 +155,16 @@ struct TotalsView: View {
     }
 
     private func paceLine(for pace: SpendingPace) -> some View {
-        let baseline = pace.previousMonthTotal.map { " · last month \($0.wholeDollars)" } ?? ""
-        return Text("On pace for \(pace.projectedTotal.wholeDollars) this month\(baseline)")
+        Text(pace.headline)
             .font(.subheadline.weight(.medium))
             .foregroundStyle(paceStyle(for: pace.standing))
             .frame(maxWidth: .infinity, alignment: .leading)
             .accessibilityIdentifier("pace-line")
     }
 
-    /// Red = burning hotter than last month, green = under it — the same
-    /// semantics as the widget's status outline.
+    /// Red = projecting over last month, green = under. Note this colors the
+    /// PROJECTION, while InsightsView.comparisonColor colors the actual
+    /// month-to-date delta — mid-month the two can legitimately disagree.
     private func paceStyle(for standing: SpendingPace.Standing) -> AnyShapeStyle {
         switch standing {
         case .over: AnyShapeStyle(.red)

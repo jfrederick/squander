@@ -95,6 +95,45 @@ struct SpendingPaceTests {
         #expect(SpendingPace.compute(expenses: expenses, asOf: asOf, calendar: Self.calendar()) == nil)
     }
 
+    @Test("future-dated expenses within the month are not elapsed spending")
+    func futureDatedExpensesExcluded() {
+        // asOf July 3; $10 spent July 1, $300 rent future-dated July 25.
+        // Month-to-date is $10 (projected 10*31/3 ~ 103), not $310 re-projected.
+        let asOf = Self.date("2026-07-03T12:00:00-04:00")
+        let expenses: [(timestamp: Date, amount: Int)] = [
+            (Self.date("2026-07-01T12:00:00-04:00"), 10),
+            (Self.date("2026-07-25T12:00:00-04:00"), 300)
+        ]
+        let pace = SpendingPace.compute(expenses: expenses, asOf: asOf, calendar: Self.calendar())
+        #expect(pace?.monthToDate == 10)
+        #expect(pace?.projectedTotal == 103)
+    }
+
+    @Test("expenses later today still count as month-to-date")
+    func laterTodayCounts() {
+        let asOf = Self.date("2026-07-03T12:00:00-04:00")
+        let expenses: [(timestamp: Date, amount: Int)] = [
+            (Self.date("2026-07-03T22:00:00-04:00"), 9)
+        ]
+        let pace = SpendingPace.compute(expenses: expenses, asOf: asOf, calendar: Self.calendar())
+        #expect(pace?.monthToDate == 9)
+        #expect(pace?.projectedTotal == 93)
+    }
+
+    @Test("headline copy with and without a baseline")
+    func headlineCopy() {
+        let with = SpendingPace(monthToDate: 50, projectedTotal: 155, previousMonthTotal: 400)
+        #expect(with.headline == "On pace for $155 this month · last month $400")
+        let without = SpendingPace(monthToDate: 50, projectedTotal: 155, previousMonthTotal: nil)
+        #expect(without.headline == "On pace for $155 this month")
+    }
+
+    @Test("a directly-constructed zero baseline reads as no baseline")
+    func directZeroBaselineIsNoBaseline() {
+        let pace = SpendingPace(monthToDate: 5, projectedTotal: 155, previousMonthTotal: 0)
+        #expect(pace.standing == .noBaseline)
+    }
+
     @Test("a zero-expense previous month is no baseline, not $0")
     func zeroPreviousMonthIsNoBaseline() {
         let asOf = Self.date("2026-07-10T12:00:00-04:00")
