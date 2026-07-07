@@ -9,6 +9,10 @@ import SpendthriftCore
 /// aggregation math lives in SpendthriftCore; this view only formats it.
 struct InsightsView: View {
     @Environment(\.expenseStore) private var store
+    // Captured for the share export so the rendered PNG matches the
+    // on-screen appearance (ImageRenderer inherits no environment).
+    @Environment(\.colorScheme) private var colorScheme
+    @Environment(\.displayScale) private var displayScale
 
     @Query(sort: \Expense.timestamp, order: .reverse)
     private var expenses: [Expense]
@@ -67,6 +71,18 @@ struct InsightsView: View {
         return MonthComparison.compute(currentTotal: monthTotal, previousTotal: previousTotal)
     }
 
+    /// Biggest day + longest no-spend streak for the displayed month; nil
+    /// (no recap) when the month is empty (spec: spending-insights, month
+    /// recap). Fed from monthExpenses — no need to remap the full history.
+    private var recap: MonthRecap? {
+        MonthRecap.compute(
+            expenses: monthExpenses.map { (timestamp: $0.timestamp, amount: $0.amountDollars) },
+            monthContaining: monthStart,
+            asOf: .now,
+            calendar: calendar
+        )
+    }
+
     private var colorNamesByCategory: [String: String] {
         Dictionary(categories.map { ($0.name, $0.colorName) }, uniquingKeysWith: { first, _ in first })
     }
@@ -108,6 +124,11 @@ struct InsightsView: View {
                                 .accessibilityElement(children: .combine)
                                 .accessibilityIdentifier("insights-category-row-\(index)")
                         }
+                    }
+
+                    Section("Recap") {
+                        recapSection
+                            .listRowSeparator(.hidden)
                     }
                 }
                 .listStyle(.plain)
@@ -169,6 +190,45 @@ struct InsightsView: View {
 
     // MARK: - Pieces
 
+    /// The card plus its share control. The share item is a lazy
+    /// Transferable — the PNG renders only when a share actually happens,
+    /// never on List re-render.
+    @ViewBuilder
+    private var recapSection: some View {
+        if let recap {
+            let monthTitle = monthStart.formatted(.dateTime.month(.wide).year())
+            let topThree = Array(breakdown.prefix(3))
+            VStack(alignment: .leading, spacing: 10) {
+                RecapCardView(
+                    monthTitle: monthTitle,
+                    total: monthTotal,
+                    comparison: comparison,
+                    topCategories: topThree,
+                    recap: recap
+                )
+                .accessibilityElement(children: .combine)
+                .accessibilityIdentifier("insights-recap")
+                ShareLink(
+                    item: RecapShareItem(
+                        monthTitle: monthTitle,
+                        total: monthTotal,
+                        comparison: comparison,
+                        topCategories: topThree,
+                        recap: recap,
+                        colorScheme: colorScheme,
+                        displayScale: displayScale
+                    ),
+                    preview: SharePreview("\(monthTitle) recap")
+                ) {
+                    Label("Share recap", systemImage: "square.and.arrow.up")
+                        .font(.subheadline)
+                }
+                .accessibilityIdentifier("insights-recap-share")
+            }
+            .padding(.vertical, 4)
+        }
+    }
+
     private var monthStepper: some View {
         HStack {
             Button {
@@ -209,13 +269,16 @@ struct InsightsView: View {
     @ViewBuilder
     private var comparisonLine: some View {
         Group {
-            if let percent = comparison.percentChange {
+            // Sentence and color are shared with the recap card
+            // (MonthComparison.headline in Core, comparisonColor helper)
+            // so the two renderings can't drift.
+            if let headline = comparison.headline {
                 HStack(spacing: 4) {
                     Image(systemName: comparisonSymbol)
-                    Text("\(signedDollars(comparison.delta)) (\(signedPercent(percent))) vs last month")
+                    Text(headline)
                 }
                 .font(.subheadline)
-                .foregroundStyle(comparisonColor)
+                .foregroundStyle(comparisonColor(for: comparison.direction))
             } else {
                 Text("No previous month to compare")
                     .font(.subheadline)
@@ -232,22 +295,6 @@ struct InsightsView: View {
         case .decrease: return "arrow.down.right"
         case .flat: return "equal"
         }
-    }
-
-    private var comparisonColor: Color {
-        switch comparison.direction {
-        case .increase: return .red
-        case .decrease: return .green
-        case .flat: return .secondary
-        }
-    }
-
-    private func signedDollars(_ delta: Int) -> String {
-        delta < 0 ? "-\(abs(delta).wholeDollars)" : "+\(delta.wholeDollars)"
-    }
-
-    private func signedPercent(_ percent: Int) -> String {
-        percent < 0 ? "\(percent)%" : "+\(percent)%"
     }
 
     private var donutChart: some View {
