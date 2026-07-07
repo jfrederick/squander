@@ -2,7 +2,7 @@ import SwiftUI
 import Charts
 import SpendthriftCore
 
-/// Bar chart of recent period totals for the Totals tab header. Empty
+/// Bar chart of recent period totals for the Spent tab header. Empty
 /// periods render as zero-height bars; the current period (the series'
 /// last element) is highlighted.
 struct TrendChartView: View {

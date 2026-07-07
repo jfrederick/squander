@@ -1,7 +1,7 @@
 import SwiftUI
 
-/// App root: a two-tab layout with Entry as the default tab (design D4/D8).
-/// Saving an expense switches to the Totals tab; the transient save
+/// App root: a two-tab layout with Log (entry) as the default tab (design D4/D8).
+/// Saving an expense switches to the Spent tab; the transient save
 /// confirmation overlays whichever tab is showing.
 struct RootTabView: View {
     @State private var selectedTab: Tab = .entry
@@ -20,16 +20,16 @@ struct RootTabView: View {
             TabView(selection: $selectedTab) {
                 // No identifiers on tabItem labels — SwiftUI doesn't surface
                 // them on the rendered tab-bar buttons; tests must use
-                // app.tabBars.buttons["Entry"/"Totals"] by visible label.
+                // app.tabBars.buttons["Log"/"Spent"] by visible label.
                 EntryView(onSaved: handleExpenseSaved)
                     .tabItem {
-                        Label("Entry", systemImage: "square.grid.3x3.fill")
+                        Label("Log", systemImage: "square.grid.3x3.fill")
                     }
                     .tag(Tab.entry)
 
                 TotalsView()
                     .tabItem {
-                        Label("Totals", systemImage: "chart.bar.fill")
+                        Label("Spent", systemImage: "chart.bar.fill")
                     }
                     .tag(Tab.totals)
             }
