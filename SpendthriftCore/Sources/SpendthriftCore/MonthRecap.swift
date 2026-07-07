@@ -29,21 +29,37 @@ public struct MonthRecap: Equatable, Sendable {
         self.longestNoSpendStreak = longestNoSpendStreak
     }
 
+    /// Recap copy, Core-built and unit-tested like WeeklyDigest.body and
+    /// SpendingPace.headline — the views never assemble these sentences.
+    public var biggestDayLine: String? {
+        biggestDay.map {
+            "Biggest day: \($0.day.formatted(.dateTime.month(.abbreviated).day())) · \($0.total.wholeDollars)"
+        }
+    }
+
+    public var streakLine: String {
+        "Longest no-spend streak: \(longestNoSpendStreak) \(longestNoSpendStreak == 1 ? "day" : "days")"
+    }
+
+    /// Nil when the month has no expenses — nothing to recap (same
+    /// convention as SpendingPace.compute and WeeklyDigest: the degenerate
+    /// "30-day streak, nothing else" card is unrepresentable).
     public static func compute(
         expenses: [(timestamp: Date, amount: Int)],
         monthContaining month: Date,
         asOf: Date,
         calendar: Calendar
-    ) -> MonthRecap {
+    ) -> MonthRecap? {
         guard let interval = calendar.dateInterval(of: .month, for: month),
               let daysInMonth = calendar.range(of: .day, in: .month, for: month)?.count else {
-            return MonthRecap(biggestDay: nil, longestNoSpendStreak: 0)
+            return nil
         }
 
         var totalsByDayStart: [Date: Int] = [:]
         for expense in expenses where interval.start <= expense.timestamp && expense.timestamp < interval.end {
             totalsByDayStart[calendar.startOfDay(for: expense.timestamp), default: 0] += expense.amount
         }
+        guard !totalsByDayStart.isEmpty else { return nil }
 
         let biggest = totalsByDayStart
             .max { a, b in

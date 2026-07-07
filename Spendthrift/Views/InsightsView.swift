@@ -9,6 +9,10 @@ import SpendthriftCore
 /// aggregation math lives in SpendthriftCore; this view only formats it.
 struct InsightsView: View {
     @Environment(\.expenseStore) private var store
+    // Captured for the share export so the rendered PNG matches the
+    // on-screen appearance (ImageRenderer inherits no environment).
+    @Environment(\.colorScheme) private var colorScheme
+    @Environment(\.displayScale) private var displayScale
 
     @Query(sort: \Expense.timestamp, order: .reverse)
     private var expenses: [Expense]
@@ -67,24 +71,15 @@ struct InsightsView: View {
         return MonthComparison.compute(currentTotal: monthTotal, previousTotal: previousTotal)
     }
 
-    /// Biggest day + longest no-spend streak for the displayed month
-    /// (spec: spending-insights, month recap).
-    private var recap: MonthRecap {
+    /// Biggest day + longest no-spend streak for the displayed month; nil
+    /// (no recap) when the month is empty (spec: spending-insights, month
+    /// recap). Fed from monthExpenses — no need to remap the full history.
+    private var recap: MonthRecap? {
         MonthRecap.compute(
-            expenses: expenses.map { (timestamp: $0.timestamp, amount: $0.amountDollars) },
+            expenses: monthExpenses.map { (timestamp: $0.timestamp, amount: $0.amountDollars) },
             monthContaining: monthStart,
             asOf: .now,
             calendar: calendar
-        )
-    }
-
-    private var recapCard: RecapCardView {
-        RecapCardView(
-            monthTitle: monthStart.formatted(.dateTime.month(.wide).year()),
-            total: monthTotal,
-            comparison: comparison,
-            topCategories: breakdown,
-            recap: recap
         )
     }
 
@@ -195,38 +190,43 @@ struct InsightsView: View {
 
     // MARK: - Pieces
 
-    /// The card plus its share control. The image is rendered once per body
-    /// evaluation and reused for both the share item and its preview.
+    /// The card plus its share control. The share item is a lazy
+    /// Transferable — the PNG renders only when a share actually happens,
+    /// never on List re-render.
     @ViewBuilder
     private var recapSection: some View {
-        let image = recapImage
-        VStack(alignment: .leading, spacing: 10) {
-            recapCard
+        if let recap {
+            let monthTitle = monthStart.formatted(.dateTime.month(.wide).year())
+            let topThree = Array(breakdown.prefix(3))
+            VStack(alignment: .leading, spacing: 10) {
+                RecapCardView(
+                    monthTitle: monthTitle,
+                    total: monthTotal,
+                    comparison: comparison,
+                    topCategories: topThree,
+                    recap: recap
+                )
                 .accessibilityElement(children: .combine)
                 .accessibilityIdentifier("insights-recap")
-            ShareLink(
-                item: image,
-                preview: SharePreview(
-                    "\(monthStart.formatted(.dateTime.month(.wide).year())) recap",
-                    image: image
-                )
-            ) {
-                Label("Share recap", systemImage: "square.and.arrow.up")
-                    .font(.subheadline)
+                ShareLink(
+                    item: RecapShareItem(
+                        monthTitle: monthTitle,
+                        total: monthTotal,
+                        comparison: comparison,
+                        topCategories: topThree,
+                        recap: recap,
+                        colorScheme: colorScheme,
+                        displayScale: displayScale
+                    ),
+                    preview: SharePreview("\(monthTitle) recap")
+                ) {
+                    Label("Share recap", systemImage: "square.and.arrow.up")
+                        .font(.subheadline)
+                }
+                .accessibilityIdentifier("insights-recap-share")
             }
-            .accessibilityIdentifier("insights-recap-share")
+            .padding(.vertical, 4)
         }
-        .padding(.vertical, 4)
-    }
-
-    /// Renders the card standalone at a fixed width for the share sheet.
-    private var recapImage: Image {
-        let renderer = ImageRenderer(content: recapCard.frame(width: 360).padding(12))
-        renderer.scale = 3
-        guard let rendered = renderer.uiImage else {
-            return Image(systemName: "photo")
-        }
-        return Image(uiImage: rendered)
     }
 
     private var monthStepper: some View {
@@ -269,13 +269,16 @@ struct InsightsView: View {
     @ViewBuilder
     private var comparisonLine: some View {
         Group {
-            if let percent = comparison.percentChange {
+            // Sentence and color are shared with the recap card
+            // (MonthComparison.headline in Core, comparisonColor helper)
+            // so the two renderings can't drift.
+            if let headline = comparison.headline {
                 HStack(spacing: 4) {
                     Image(systemName: comparisonSymbol)
-                    Text("\(signedDollars(comparison.delta)) (\(signedPercent(percent))) vs last month")
+                    Text(headline)
                 }
                 .font(.subheadline)
-                .foregroundStyle(comparisonColor)
+                .foregroundStyle(comparisonColor(for: comparison.direction))
             } else {
                 Text("No previous month to compare")
                     .font(.subheadline)
@@ -292,22 +295,6 @@ struct InsightsView: View {
         case .decrease: return "arrow.down.right"
         case .flat: return "equal"
         }
-    }
-
-    private var comparisonColor: Color {
-        switch comparison.direction {
-        case .increase: return .red
-        case .decrease: return .green
-        case .flat: return .secondary
-        }
-    }
-
-    private func signedDollars(_ delta: Int) -> String {
-        delta < 0 ? "-\(abs(delta).wholeDollars)" : "+\(delta.wholeDollars)"
-    }
-
-    private func signedPercent(_ percent: Int) -> String {
-        percent < 0 ? "\(percent)%" : "+\(percent)%"
     }
 
     private var donutChart: some View {

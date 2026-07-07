@@ -1,14 +1,18 @@
 import SwiftUI
+import CoreTransferable
 import SpendthriftCore
 
 /// The month-recap card: renders both inline in Insights and standalone
 /// through ImageRenderer for the share sheet, so it takes plain values —
 /// no queries, no environment (spec: spending-insights, month recap).
+/// All sentences come from Core (MonthRecap/MonthComparison); this view
+/// only lays them out.
 struct RecapCardView: View {
     let monthTitle: String
     let total: Int
     let comparison: MonthComparison
-    /// Top categories, already ranked (the view truncates to three).
+    /// Exactly the categories rendered — the caller truncates to the
+    /// spec's top three.
     let topCategories: [CategoryShare]
     let recap: MonthRecap
 
@@ -22,15 +26,15 @@ struct RecapCardView: View {
                     .font(.system(.title2, design: .rounded, weight: .bold))
             }
 
-            if let percent = comparison.percentChange {
-                Text("\(percent < 0 ? "" : "+")\(percent)% vs last month")
+            if let headline = comparison.headline {
+                Text(headline)
                     .font(.footnote)
-                    .foregroundStyle(comparisonColor)
+                    .foregroundStyle(comparisonColor(for: comparison.direction))
             }
 
             Divider()
 
-            ForEach(topCategories.prefix(3), id: \.category) { share in
+            ForEach(topCategories, id: \.category) { share in
                 HStack {
                     Text(share.category)
                         .font(.subheadline)
@@ -42,16 +46,10 @@ struct RecapCardView: View {
 
             Divider()
 
-            if let biggest = recap.biggestDay {
-                factRow(
-                    symbol: "flame",
-                    text: "Biggest day: \(biggest.day.formatted(.dateTime.month(.abbreviated).day())) · \(biggest.total.wholeDollars)"
-                )
+            if let biggestDayLine = recap.biggestDayLine {
+                factRow(symbol: "flame", text: biggestDayLine)
             }
-            factRow(
-                symbol: "leaf",
-                text: "Longest no-spend streak: \(recap.longestNoSpendStreak) \(recap.longestNoSpendStreak == 1 ? "day" : "days")"
-            )
+            factRow(symbol: "leaf", text: recap.streakLine)
         }
         .padding(16)
         .background(.background, in: RoundedRectangle(cornerRadius: 16))
@@ -70,12 +68,50 @@ struct RecapCardView: View {
                 .font(.footnote)
         }
     }
+}
 
-    private var comparisonColor: Color {
-        switch comparison.direction {
-        case .increase: return .red
-        case .decrease: return .green
-        case .flat: return .secondary
+/// Lazily renders the recap card to a PNG when the share actually happens —
+/// never on List re-render. Holds only Sendable values; the card view is
+/// built inside the exporting closure on the main actor.
+struct RecapShareItem: Transferable {
+    let monthTitle: String
+    let total: Int
+    let comparison: MonthComparison
+    let topCategories: [CategoryShare]
+    let recap: MonthRecap
+    /// Captured from the presenting view so the export matches what the
+    /// user sees — ImageRenderer does not inherit the app's environment.
+    let colorScheme: ColorScheme
+    let displayScale: CGFloat
+
+    enum RenderError: Error {
+        case renderFailed
+    }
+
+    static var transferRepresentation: some TransferRepresentation {
+        DataRepresentation(exportedContentType: .png) { item in
+            try await MainActor.run {
+                let card = RecapCardView(
+                    monthTitle: item.monthTitle,
+                    total: item.total,
+                    comparison: item.comparison,
+                    topCategories: item.topCategories,
+                    recap: item.recap
+                )
+                // Opaque backing: bare .padding would export transparent
+                // pixels that composite badly on dark surfaces.
+                let content = card
+                    .frame(width: 360)
+                    .padding(12)
+                    .background(Color(uiColor: .systemBackground))
+                    .environment(\.colorScheme, item.colorScheme)
+                let renderer = ImageRenderer(content: content)
+                renderer.scale = item.displayScale
+                guard let data = renderer.uiImage?.pngData() else {
+                    throw RenderError.renderFailed
+                }
+                return data
+            }
         }
     }
 }

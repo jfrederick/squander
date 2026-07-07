@@ -32,8 +32,8 @@ struct MonthRecapTests {
             (Self.date("2026-06-20T09:00:00-04:00"), 45)    // June 20: 45
         ]
         let recap = MonthRecap.compute(expenses: expenses, monthContaining: Self.june, asOf: Self.asOfJuly, calendar: Self.calendar())
-        #expect(recap.biggestDay?.total == 50)
-        #expect(recap.biggestDay?.day == Self.calendar().startOfDay(for: Self.date("2026-06-03T09:00:00-04:00")))
+        #expect(recap?.biggestDay?.total == 50)
+        #expect(recap?.biggestDay?.day == Self.calendar().startOfDay(for: Self.date("2026-06-03T09:00:00-04:00")))
     }
 
     @Test("biggest-day ties break to the earliest day")
@@ -43,7 +43,7 @@ struct MonthRecapTests {
             (Self.date("2026-06-25T09:00:00-04:00"), 40)
         ]
         let recap = MonthRecap.compute(expenses: expenses, monthContaining: Self.june, asOf: Self.asOfJuly, calendar: Self.calendar())
-        #expect(recap.biggestDay?.day == Self.calendar().startOfDay(for: Self.date("2026-06-10T09:00:00-04:00")))
+        #expect(recap?.biggestDay?.day == Self.calendar().startOfDay(for: Self.date("2026-06-10T09:00:00-04:00")))
     }
 
     @Test("streak spans the whole month for a completed month")
@@ -53,7 +53,7 @@ struct MonthRecapTests {
             (Self.date("2026-06-05T09:00:00-04:00"), 10)
         ]
         let recap = MonthRecap.compute(expenses: expenses, monthContaining: Self.june, asOf: Self.asOfJuly, calendar: Self.calendar())
-        #expect(recap.longestNoSpendStreak == 25)
+        #expect(recap?.longestNoSpendStreak == 25)
     }
 
     @Test("current month's streak only counts elapsed days")
@@ -64,14 +64,13 @@ struct MonthRecapTests {
             (Self.date("2026-07-03T09:00:00-04:00"), 10)
         ]
         let recap = MonthRecap.compute(expenses: expenses, monthContaining: asOf, asOf: asOf, calendar: Self.calendar())
-        #expect(recap.longestNoSpendStreak == 7)
+        #expect(recap?.longestNoSpendStreak == 7)
     }
 
-    @Test("empty month: no biggest day, streak covers all elapsed days")
-    func emptyMonth() {
+    @Test("an empty month yields nil - no recap to show")
+    func emptyMonthIsNil() {
         let recap = MonthRecap.compute(expenses: [], monthContaining: Self.june, asOf: Self.asOfJuly, calendar: Self.calendar())
-        #expect(recap.biggestDay == nil)
-        #expect(recap.longestNoSpendStreak == 30)
+        #expect(recap == nil)
     }
 
     @Test("expenses outside the month are ignored")
@@ -82,12 +81,29 @@ struct MonthRecapTests {
             (Self.date("2026-06-12T09:00:00-04:00"), 7)
         ]
         let recap = MonthRecap.compute(expenses: expenses, monthContaining: Self.june, asOf: Self.asOfJuly, calendar: Self.calendar())
-        #expect(recap.biggestDay?.total == 7)
+        #expect(recap?.biggestDay?.total == 7)
     }
 
-    @Test("a future month has a zero-day window")
+    @Test("a future month with an expense has a zero-day streak window")
     func futureMonthHasNoElapsedDays() {
-        let recap = MonthRecap.compute(expenses: [], monthContaining: Self.date("2026-08-15T12:00:00-04:00"), asOf: Self.asOfJuly, calendar: Self.calendar())
-        #expect(recap.longestNoSpendStreak == 0)
+        let expenses: [(timestamp: Date, amount: Int)] = [
+            (Self.date("2026-08-10T12:00:00-04:00"), 5)
+        ]
+        let recap = MonthRecap.compute(expenses: expenses, monthContaining: Self.date("2026-08-15T12:00:00-04:00"), asOf: Self.asOfJuly, calendar: Self.calendar())
+        #expect(recap?.longestNoSpendStreak == 0)
+        #expect(recap?.biggestDay?.total == 5)
+    }
+
+    @Test("recap copy: streak pluralization and biggest-day line")
+    func recapCopy() {
+        let oneDay = MonthRecap(biggestDay: nil, longestNoSpendStreak: 1)
+        #expect(oneDay.streakLine == "Longest no-spend streak: 1 day")
+        #expect(oneDay.biggestDayLine == nil)
+
+        let cal = Self.calendar()
+        let june3 = cal.startOfDay(for: Self.date("2026-06-03T09:00:00-04:00"))
+        let recap = MonthRecap(biggestDay: .init(day: june3, total: 85), longestNoSpendStreak: 5)
+        #expect(recap.streakLine == "Longest no-spend streak: 5 days")
+        #expect(recap.biggestDayLine == "Biggest day: Jun 3 · $85")
     }
 }

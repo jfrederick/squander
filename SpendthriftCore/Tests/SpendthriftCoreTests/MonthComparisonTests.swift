@@ -50,4 +50,14 @@ struct MonthComparisonTests {
         // +124 on 1000 = +12.4% -> +12.
         #expect(MonthComparison.compute(currentTotal: 1124, previousTotal: 1000).percentChange == 12)
     }
+
+    @Test("headline copy for increase, decrease, and no baseline")
+    func headlineCopy() {
+        let up = MonthComparison.compute(currentTotal: 550, previousTotal: 500)
+        #expect(up.headline == "+$50 (+10%) vs last month")
+        let down = MonthComparison.compute(currentTotal: 450, previousTotal: 500)
+        #expect(down.headline == "-$50 (-10%) vs last month")
+        let none = MonthComparison.compute(currentTotal: 450, previousTotal: nil)
+        #expect(none.headline == nil)
+    }
 }

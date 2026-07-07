@@ -23,6 +23,17 @@ public struct MonthComparison: Equatable, Sendable {
         self.direction = direction
     }
 
+
+    /// The month-over-month sentence shared by the Insights header line and
+    /// the recap card, so the two renderings can't drift (copy in Core per
+    /// the WeeklyDigest/SpendingPace precedent). Nil with no baseline month.
+    public var headline: String? {
+        guard let percentChange else { return nil }
+        let dollars = delta < 0 ? "-\(abs(delta).wholeDollars)" : "+\(delta.wholeDollars)"
+        let percent = percentChange < 0 ? "\(percentChange)%" : "+\(percentChange)%"
+        return "\(dollars) (\(percent)) vs last month"
+    }
+
     /// Compares `currentTotal` against `previousTotal`. Pass `nil` for
     /// `previousTotal` when the previous month has no expenses.
     public static func compute(currentTotal: Int, previousTotal: Int?) -> MonthComparison {
