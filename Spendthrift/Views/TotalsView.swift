@@ -2,7 +2,7 @@ import SwiftUI
 import SwiftData
 import SpendthriftCore
 
-/// Totals tab: Daily/Weekly/Monthly segmented views over a live @Query of
+/// Spent tab: Daily/Weekly/Monthly segmented totals over a live @Query of
 /// expenses so totals update automatically (design D7).
 struct TotalsView: View {
     @Environment(\.expenseStore) private var store
@@ -101,7 +101,7 @@ struct TotalsView: View {
                     .listStyle(.plain)
                 }
             }
-            .navigationTitle("Totals")
+            .navigationTitle("Spent")
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     NavigationLink {
