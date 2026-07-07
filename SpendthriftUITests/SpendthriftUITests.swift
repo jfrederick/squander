@@ -306,6 +306,21 @@ final class SpendthriftUITests: XCTestCase {
         XCTAssertTrue(element(app, id: "trend-chart").waitForExistence(timeout: 3))
     }
 
+    func test_spentTab_showsSpendingPace() {
+        let app = launchedApp(seedData: true)
+
+        app.tabBars.buttons["Spent"].tap()
+
+        // Seeded data always has today's $25 in the current month and the
+        // $30 "seed last month" expense in the previous one, so the pace
+        // line shows a projection with a baseline. Exact numbers depend on
+        // the run date; the math is pinned by SpendingPaceTests in Core.
+        let pace = element(app, id: "pace-line")
+        XCTAssertTrue(pace.waitForExistence(timeout: 5))
+        XCTAssertTrue(pace.label.contains("On pace for"))
+        XCTAssertTrue(pace.label.contains("last month"))
+    }
+
     func test_trendChart_tapOnBar_opensPeriodDrillIn() {
         let app = launchedApp(seedData: true)
 
