@@ -75,6 +75,16 @@ struct TotalsView: View {
         periodTotals.sorted { $0.interval.start > $1.interval.start }
     }
 
+    /// Month trajectory for the header line; nil (hidden) while the current
+    /// month has no expenses (spec: spending-insights, spending pace).
+    private var pace: SpendingPace? {
+        SpendingPace.compute(
+            expenses: expenses.map { (timestamp: $0.timestamp, amount: $0.amountDollars) },
+            asOf: .now,
+            calendar: calendar
+        )
+    }
+
     var body: some View {
         NavigationStack {
             VStack(spacing: 0) {
@@ -86,6 +96,12 @@ struct TotalsView: View {
                 .pickerStyle(.segmented)
                 .padding()
                 .accessibilityIdentifier("segmented-granularity")
+
+                if let pace {
+                    paceLine(for: pace)
+                        .padding(.horizontal)
+                        .padding(.bottom, 6)
+                }
 
                 TrendChartView(series: chartSeries, granularity: corePeriodGranularity) { period in
                     // Row parity: the list marks its first (most recent
@@ -135,6 +151,25 @@ struct TotalsView: View {
                     .accessibilityLabel("Insights")
                 }
             }
+        }
+    }
+
+    private func paceLine(for pace: SpendingPace) -> some View {
+        let baseline = pace.previousMonthTotal.map { " · last month \($0.wholeDollars)" } ?? ""
+        return Text("On pace for \(pace.projectedTotal.wholeDollars) this month\(baseline)")
+            .font(.subheadline.weight(.medium))
+            .foregroundStyle(paceStyle(for: pace.standing))
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .accessibilityIdentifier("pace-line")
+    }
+
+    /// Red = burning hotter than last month, green = under it — the same
+    /// semantics as the widget's status outline.
+    private func paceStyle(for standing: SpendingPace.Standing) -> AnyShapeStyle {
+        switch standing {
+        case .over: AnyShapeStyle(.red)
+        case .under: AnyShapeStyle(.green)
+        case .even, .noBaseline: AnyShapeStyle(.secondary)
         }
     }
 
