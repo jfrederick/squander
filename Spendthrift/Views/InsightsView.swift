@@ -67,6 +67,27 @@ struct InsightsView: View {
         return MonthComparison.compute(currentTotal: monthTotal, previousTotal: previousTotal)
     }
 
+    /// Biggest day + longest no-spend streak for the displayed month
+    /// (spec: spending-insights, month recap).
+    private var recap: MonthRecap {
+        MonthRecap.compute(
+            expenses: expenses.map { (timestamp: $0.timestamp, amount: $0.amountDollars) },
+            monthContaining: monthStart,
+            asOf: .now,
+            calendar: calendar
+        )
+    }
+
+    private var recapCard: RecapCardView {
+        RecapCardView(
+            monthTitle: monthStart.formatted(.dateTime.month(.wide).year()),
+            total: monthTotal,
+            comparison: comparison,
+            topCategories: breakdown,
+            recap: recap
+        )
+    }
+
     private var colorNamesByCategory: [String: String] {
         Dictionary(categories.map { ($0.name, $0.colorName) }, uniquingKeysWith: { first, _ in first })
     }
@@ -108,6 +129,11 @@ struct InsightsView: View {
                                 .accessibilityElement(children: .combine)
                                 .accessibilityIdentifier("insights-category-row-\(index)")
                         }
+                    }
+
+                    Section("Recap") {
+                        recapSection
+                            .listRowSeparator(.hidden)
                     }
                 }
                 .listStyle(.plain)
@@ -168,6 +194,40 @@ struct InsightsView: View {
     }
 
     // MARK: - Pieces
+
+    /// The card plus its share control. The image is rendered once per body
+    /// evaluation and reused for both the share item and its preview.
+    @ViewBuilder
+    private var recapSection: some View {
+        let image = recapImage
+        VStack(alignment: .leading, spacing: 10) {
+            recapCard
+                .accessibilityElement(children: .combine)
+                .accessibilityIdentifier("insights-recap")
+            ShareLink(
+                item: image,
+                preview: SharePreview(
+                    "\(monthStart.formatted(.dateTime.month(.wide).year())) recap",
+                    image: image
+                )
+            ) {
+                Label("Share recap", systemImage: "square.and.arrow.up")
+                    .font(.subheadline)
+            }
+            .accessibilityIdentifier("insights-recap-share")
+        }
+        .padding(.vertical, 4)
+    }
+
+    /// Renders the card standalone at a fixed width for the share sheet.
+    private var recapImage: Image {
+        let renderer = ImageRenderer(content: recapCard.frame(width: 360).padding(12))
+        renderer.scale = 3
+        guard let rendered = renderer.uiImage else {
+            return Image(systemName: "photo")
+        }
+        return Image(uiImage: rendered)
+    }
 
     private var monthStepper: some View {
         HStack {

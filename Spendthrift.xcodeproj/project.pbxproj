@@ -33,6 +33,7 @@
 		82885513D5A077C45EB7C9F9 /* EntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFC5DD7509C68CDE17F1209 /* EntryView.swift */; };
 		961BF4F2119419513228CDA0 /* QuickLogWritePathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0BD357FCF1FFA1FC9D181B /* QuickLogWritePathTests.swift */; };
 		97D1AA1ED2D8BFEFC1C17E16 /* QueryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1944CA78F03FC2C54703981D /* QueryTests.swift */; };
+		A3909FE4D84CA60ABEE18554 /* RecapCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB94485916B32BCD2B605EA /* RecapCardView.swift */; };
 		A40F76E27DE9A68F8BBE465C /* ContainerMigrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4321510E8C5BE2933C6B2A /* ContainerMigrationTests.swift */; };
 		A553115844011AADDB0ECB70 /* ExpenseEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521DB77333253001D384DAE0 /* ExpenseEditView.swift */; };
 		AB032409E0638C4E92B1528A /* InsightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0F4D65A141FC36ABC554A5 /* InsightsView.swift */; };
@@ -115,6 +116,7 @@
 		480A33D5B34D440CBBAE083D /* Spendthrift.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Spendthrift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BFC5DD7509C68CDE17F1209 /* EntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryView.swift; sourceTree = "<group>"; };
 		4F0F4D65A141FC36ABC554A5 /* InsightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightsView.swift; sourceTree = "<group>"; };
+		4FB94485916B32BCD2B605EA /* RecapCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecapCardView.swift; sourceTree = "<group>"; };
 		521DB77333253001D384DAE0 /* ExpenseEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseEditView.swift; sourceTree = "<group>"; };
 		5257467F15D36F14A6CFF37C /* SpendthriftWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendthriftWidget.swift; sourceTree = "<group>"; };
 		59E72CD9B3D6CD092E21CD8E /* AmountDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmountDisplayView.swift; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 				3DC54A2E799D44A57D36EF46 /* Formatting.swift */,
 				4F0F4D65A141FC36ABC554A5 /* InsightsView.swift */,
 				D9794C1B380A160FBB9D9462 /* KeypadView.swift */,
+				4FB94485916B32BCD2B605EA /* RecapCardView.swift */,
 				253FA548AF2368B022714131 /* RootTabView.swift */,
 				D04B0E294140932B49201DD8 /* TotalsView.swift */,
 				8A1C87E64487EE27411EE9D4 /* TrendChartView.swift */,
@@ -516,6 +519,7 @@
 				AB032409E0638C4E92B1528A /* InsightsView.swift in Sources */,
 				73DC813F36A8F2F3CFD387AD /* KeypadView.swift in Sources */,
 				4155196658E31F4726F8D91D /* LogSpokenExpenseIntent.swift in Sources */,
+				A3909FE4D84CA60ABEE18554 /* RecapCardView.swift in Sources */,
 				B586A1951B9E228D52EE1C64 /* RootTabView.swift in Sources */,
 				2BF3117E84330A8DC2F7C0D0 /* SpendthriftApp.swift in Sources */,
 				E1C37B649E129F1D64D63C43 /* SpendthriftContainer.swift in Sources */,

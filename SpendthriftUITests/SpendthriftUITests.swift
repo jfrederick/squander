@@ -400,6 +400,27 @@ final class SpendthriftUITests: XCTestCase {
         XCTAssertFalse(nextButton.isEnabled)
     }
 
+    func test_insights_showsMonthRecap() {
+        let app = launchedApp(seedData: true)
+
+        app.tabBars.buttons["Spent"].tap()
+        let insightsButton = element(app, id: "insights-button")
+        XCTAssertTrue(insightsButton.waitForExistence(timeout: 5))
+        insightsButton.tap()
+
+        // The recap section sits below the category list; scroll if needed.
+        if !element(app, id: "insights-recap").waitForExistence(timeout: 3) {
+            app.swipeUp()
+        }
+        let recap = element(app, id: "insights-recap")
+        XCTAssertTrue(recap.waitForExistence(timeout: 3))
+        // Combined card label carries the streak fact; exact numbers are
+        // pinned by MonthRecapTests in Core.
+        XCTAssertTrue(recap.label.contains("no-spend streak"))
+
+        XCTAssertTrue(element(app, id: "insights-recap-share").exists)
+    }
+
     func test_insights_stepBackShowsPreviousMonthData() {
         let app = launchedApp(seedData: true)
 
