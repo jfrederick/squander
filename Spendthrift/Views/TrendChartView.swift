@@ -71,13 +71,15 @@ struct TrendChartView: View {
     }
 
     /// Maps a tap in the overlay's coordinate space to the bar underneath it.
-    /// Empty periods are ignored: the totals list never offers empty-period
-    /// drill-ins, and a zero-height bar shows nothing to open.
+    /// Only the plot area is tappable — the axis-label strips around it are
+    /// not bars. Empty periods are ignored (Core's drillInPeriod policy):
+    /// the totals list never offers empty-period drill-ins either.
     private func handleTap(at location: CGPoint, proxy: ChartProxy, geometry: GeometryProxy) {
         guard let plotFrame = proxy.plotFrame else { return }
-        let origin = geometry[plotFrame].origin
-        guard let date: Date = proxy.value(atX: location.x - origin.x) else { return }
-        guard let period = series.period(containing: date), period.total > 0 else { return }
+        let plotRect = geometry[plotFrame]
+        guard plotRect.contains(location) else { return }
+        guard let date: Date = proxy.value(atX: location.x - plotRect.origin.x) else { return }
+        guard let period = series.drillInPeriod(containing: date) else { return }
         onSelectPeriod?(period)
     }
 

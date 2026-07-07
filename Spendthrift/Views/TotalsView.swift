@@ -88,7 +88,10 @@ struct TotalsView: View {
                 .accessibilityIdentifier("segmented-granularity")
 
                 TrendChartView(series: chartSeries, granularity: corePeriodGranularity) { period in
-                    let isCurrent = period.interval == chartSeries.last?.interval
+                    // Row parity: the list marks its first (most recent
+                    // non-empty) row current, so the drill-in title matches
+                    // the row that would push the same interval.
+                    let isCurrent = period.interval == orderedTotals.first?.interval
                     chartDrillIn = ChartDrillIn(
                         interval: period.interval,
                         title: title(for: period, isCurrent: isCurrent)

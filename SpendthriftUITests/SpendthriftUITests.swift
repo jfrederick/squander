@@ -314,16 +314,19 @@ final class SpendthriftUITests: XCTestCase {
         XCTAssertTrue(chart.waitForExistence(timeout: 5))
 
         // The 14-day daily window puts today (seeded $25) in the rightmost
-        // band and yesterday ($10) beside it. The trailing y-axis labels'
-        // width isn't queryable, so a fixed normalized x can land on either
-        // of the two adjacent non-empty bands; the exact date→period mapping
-        // is covered by SpendthriftCore's PeriodHitTest unit tests. Here we
-        // assert the wiring: a bar tap pushes that period's drill-in list.
-        chart.coordinate(withNormalizedOffset: CGVector(dx: 0.88, dy: 0.5)).tap()
-
-        let openedToday = app.navigationBars["Today"].waitForExistence(timeout: 3)
-        let openedYesterday = openedToday ? false : app.navigationBars["Yesterday"].waitForExistence(timeout: 1)
-        XCTAssertTrue(openedToday || openedYesterday, "tapping a non-empty bar should open its period's expense list")
+        // band and yesterday ($10) beside it. The trailing y-axis gutter's
+        // width isn't queryable, so scan a few x positions right-to-left:
+        // under any plausible gutter width at least one lands on a non-empty
+        // band (taps in the gutter or on empty bands are no-ops by design).
+        // The exact date→period mapping is covered by SpendthriftCore's
+        // PeriodHitTest unit tests; this asserts the wiring end-to-end.
+        var opened = false
+        for dx in [0.90, 0.86, 0.82, 0.78] where !opened {
+            chart.coordinate(withNormalizedOffset: CGVector(dx: dx, dy: 0.5)).tap()
+            opened = app.navigationBars["Today"].waitForExistence(timeout: 2)
+                || app.navigationBars["Yesterday"].exists
+        }
+        XCTAssertTrue(opened, "tapping a non-empty bar should open its period's expense list")
 
         // The drill-in list shows that period's seeded expense rows.
         XCTAssertTrue(element(app, id: "expense-row-0").waitForExistence(timeout: 3))

@@ -66,4 +66,24 @@ struct PeriodHitTestTests {
         let series: [PeriodTotal] = []
         #expect(series.period(containing: Self.date("2026-07-03T12:00:00-04:00")) == nil)
     }
+
+    @Test("drill-in resolves periods with expenses")
+    func drillInResolvesNonEmptyPeriod() {
+        let series = Self.dailySeries()
+        let hit = series.drillInPeriod(containing: Self.date("2026-07-04T10:00:00-04:00"))
+        #expect(hit?.total == 25)
+    }
+
+    @Test("drill-in refuses empty periods")
+    func drillInRefusesEmptyPeriod() {
+        let series = Self.dailySeries()
+        // July 3 is inside the window but has no expenses.
+        #expect(series.drillInPeriod(containing: Self.date("2026-07-03T10:00:00-04:00")) == nil)
+    }
+
+    @Test("drill-in refuses dates outside the window")
+    func drillInRefusesOutsideWindow() {
+        let series = Self.dailySeries()
+        #expect(series.drillInPeriod(containing: Self.date("2026-07-05T10:00:00-04:00")) == nil)
+    }
 }

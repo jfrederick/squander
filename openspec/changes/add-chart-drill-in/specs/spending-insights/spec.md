@@ -24,3 +24,7 @@ The Spent tab SHALL display a bar chart above the period list showing recent per
 #### Scenario: Tapping an empty period does nothing
 - **WHEN** the user taps the chart where a day with no expenses renders its zero bar
 - **THEN** no navigation occurs and the Spent screen stays in place
+
+#### Scenario: Taps outside the plot area are ignored
+- **WHEN** the user taps the chart's axis labels outside the plot area
+- **THEN** no navigation occurs, even if the tap is horizontally aligned with a non-empty bar
