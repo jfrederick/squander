@@ -306,6 +306,46 @@ final class SpendthriftUITests: XCTestCase {
         XCTAssertTrue(element(app, id: "trend-chart").waitForExistence(timeout: 3))
     }
 
+    func test_trendChart_tapOnBar_opensPeriodDrillIn() {
+        let app = launchedApp(seedData: true)
+
+        app.tabBars.buttons["Spent"].tap()
+        let chart = element(app, id: "trend-chart")
+        XCTAssertTrue(chart.waitForExistence(timeout: 5))
+
+        // The 14-day daily window puts today (seeded $25) in the rightmost
+        // band and yesterday ($10) beside it. The trailing y-axis labels'
+        // width isn't queryable, so a fixed normalized x can land on either
+        // of the two adjacent non-empty bands; the exact date→period mapping
+        // is covered by SpendthriftCore's PeriodHitTest unit tests. Here we
+        // assert the wiring: a bar tap pushes that period's drill-in list.
+        chart.coordinate(withNormalizedOffset: CGVector(dx: 0.88, dy: 0.5)).tap()
+
+        let openedToday = app.navigationBars["Today"].waitForExistence(timeout: 3)
+        let openedYesterday = openedToday ? false : app.navigationBars["Yesterday"].waitForExistence(timeout: 1)
+        XCTAssertTrue(openedToday || openedYesterday, "tapping a non-empty bar should open its period's expense list")
+
+        // The drill-in list shows that period's seeded expense rows.
+        XCTAssertTrue(element(app, id: "expense-row-0").waitForExistence(timeout: 3))
+    }
+
+    func test_trendChart_tapOnEmptyPeriod_doesNotNavigate() {
+        let app = launchedApp(seedData: true)
+
+        app.tabBars.buttons["Spent"].tap()
+        let chart = element(app, id: "trend-chart")
+        XCTAssertTrue(chart.waitForExistence(timeout: 5))
+
+        // Mid-chart is ~7 days ago — empty in the seeded dataset (which only
+        // populates today, yesterday, and last month), well clear of the
+        // non-empty bands at the window's right edge under any axis width.
+        chart.coordinate(withNormalizedOffset: CGVector(dx: 0.4, dy: 0.5)).tap()
+
+        // No drill-in list appears; the Spent screen stays put.
+        XCTAssertFalse(element(app, id: "expense-row-0").waitForExistence(timeout: 2))
+        XCTAssertTrue(app.navigationBars["Spent"].exists)
+    }
+
     // MARK: - Insights screen
 
     func test_insights_showsWeeklyDigestToggle() {

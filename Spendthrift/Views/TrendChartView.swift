@@ -4,10 +4,12 @@ import SpendthriftCore
 
 /// Bar chart of recent period totals for the Spent tab header. Empty
 /// periods render as zero-height bars; the current period (the series'
-/// last element) is highlighted.
+/// last element) is highlighted. Tapping a bar with expenses reports its
+/// period via `onSelectPeriod` (spec: spending-insights drill-in).
 struct TrendChartView: View {
     let series: [PeriodTotal]
     let granularity: PeriodGranularity
+    var onSelectPeriod: ((PeriodTotal) -> Void)? = nil
 
     private var currentPeriodStart: Date? { series.last?.interval.start }
 
@@ -40,6 +42,16 @@ struct TrendChartView: View {
                     : Color.accentColor.opacity(0.35)
             )
         }
+        .chartOverlay { proxy in
+            GeometryReader { geometry in
+                Rectangle()
+                    .fill(.clear)
+                    .contentShape(Rectangle())
+                    .onTapGesture { location in
+                        handleTap(at: location, proxy: proxy, geometry: geometry)
+                    }
+            }
+        }
         .chartXAxis {
             AxisMarks(values: .automatic(desiredCount: 3)) { _ in
                 AxisValueLabel(format: axisLabelFormat)
@@ -56,6 +68,17 @@ struct TrendChartView: View {
         .frame(height: 120)
         .accessibilityIdentifier("trend-chart")
         .accessibilityLabel(accessibilitySummary)
+    }
+
+    /// Maps a tap in the overlay's coordinate space to the bar underneath it.
+    /// Empty periods are ignored: the totals list never offers empty-period
+    /// drill-ins, and a zero-height bar shows nothing to open.
+    private func handleTap(at location: CGPoint, proxy: ChartProxy, geometry: GeometryProxy) {
+        guard let plotFrame = proxy.plotFrame else { return }
+        let origin = geometry[plotFrame].origin
+        guard let date: Date = proxy.value(atX: location.x - origin.x) else { return }
+        guard let period = series.period(containing: date), period.total > 0 else { return }
+        onSelectPeriod?(period)
     }
 
     private var accessibilitySummary: String {

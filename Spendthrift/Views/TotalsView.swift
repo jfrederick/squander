@@ -12,6 +12,16 @@ struct TotalsView: View {
 
     @State private var granularity: Granularity = .daily
 
+    /// Period pushed by tapping a chart bar; the list's own rows push via
+    /// NavigationLink and don't go through this.
+    @State private var chartDrillIn: ChartDrillIn?
+
+    private struct ChartDrillIn: Identifiable, Hashable {
+        let interval: DateInterval
+        let title: String
+        var id: DateInterval { interval }
+    }
+
     private enum Granularity: String, CaseIterable, Identifiable {
         case daily = "Daily"
         case weekly = "Weekly"
@@ -77,9 +87,15 @@ struct TotalsView: View {
                 .padding()
                 .accessibilityIdentifier("segmented-granularity")
 
-                TrendChartView(series: chartSeries, granularity: corePeriodGranularity)
-                    .padding(.horizontal)
-                    .padding(.bottom, 8)
+                TrendChartView(series: chartSeries, granularity: corePeriodGranularity) { period in
+                    let isCurrent = period.interval == chartSeries.last?.interval
+                    chartDrillIn = ChartDrillIn(
+                        interval: period.interval,
+                        title: title(for: period, isCurrent: isCurrent)
+                    )
+                }
+                .padding(.horizontal)
+                .padding(.bottom, 8)
 
                 if orderedTotals.isEmpty {
                     Spacer()
@@ -102,6 +118,9 @@ struct TotalsView: View {
                 }
             }
             .navigationTitle("Spent")
+            .navigationDestination(item: $chartDrillIn) { drillIn in
+                ExpenseListView(interval: drillIn.interval, title: drillIn.title)
+            }
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     NavigationLink {
