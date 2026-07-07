@@ -53,6 +53,7 @@
 		FA43E05BAE481462A7453BEB /* Formatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC54A2E799D44A57D36EF46 /* Formatting.swift */; };
 		FC59981B488DC5569B5E3374 /* AmountDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E72CD9B3D6CD092E21CD8E /* AmountDisplayView.swift */; };
 		FE3C341DC062EAC9563B93AF /* TrendChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1C87E64487EE27411EE9D4 /* TrendChartView.swift */; };
+		FE7EA71823D2847E6239290B /* FlameMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C276BBEBE469C089D22F8A /* FlameMark.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,7 +112,7 @@
 		3E5C1F97AC697CEFBEEF2524 /* DigestPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigestPreferences.swift; sourceTree = "<group>"; };
 		42E9759E99311AF4AB6BA443 /* ExpenseListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseListView.swift; sourceTree = "<group>"; };
 		48015141AA3D0F674583861B /* SpendthriftSchema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendthriftSchema.swift; sourceTree = "<group>"; };
-		480A33D5B34D440CBBAE083D /* Spendthrift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spendthrift.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		480A33D5B34D440CBBAE083D /* Spendthrift.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Spendthrift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BFC5DD7509C68CDE17F1209 /* EntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryView.swift; sourceTree = "<group>"; };
 		4F0F4D65A141FC36ABC554A5 /* InsightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightsView.swift; sourceTree = "<group>"; };
 		521DB77333253001D384DAE0 /* ExpenseEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseEditView.swift; sourceTree = "<group>"; };
@@ -125,9 +126,10 @@
 		8A1C87E64487EE27411EE9D4 /* TrendChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendChartView.swift; sourceTree = "<group>"; };
 		9277F16FD232FECA3534A17A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		927BE360E7FC816404E3C961 /* SpendthriftTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = SpendthriftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9832B2EB96393399834E2481 /* SpendthriftWidgets.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SpendthriftWidgets.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		9832B2EB96393399834E2481 /* SpendthriftWidgets.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = SpendthriftWidgets.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DA8F8F1B81C5645ED10069E /* SaveExpenseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveExpenseTests.swift; sourceTree = "<group>"; };
 		A602C37176D5D29E6D8E0FAE /* LabelMappingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelMappingTests.swift; sourceTree = "<group>"; };
+		A8C276BBEBE469C089D22F8A /* FlameMark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlameMark.swift; sourceTree = "<group>"; };
 		B146E7FE873510A1997E53DB /* SpendthriftUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = SpendthriftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7E423A66A5995239404F306 /* LogSpokenExpenseIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogSpokenExpenseIntent.swift; sourceTree = "<group>"; };
 		BAB4DA47E5C2EF1FAF258A34 /* DigestSchedulerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigestSchedulerTests.swift; sourceTree = "<group>"; };
@@ -139,7 +141,7 @@
 		D84C3F72ABD4011042841C4A /* SeedingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedingTests.swift; sourceTree = "<group>"; };
 		D9794C1B380A160FBB9D9462 /* KeypadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeypadView.swift; sourceTree = "<group>"; };
 		DC5E7170BD47E97C0A000E01 /* CategoryColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryColor.swift; sourceTree = "<group>"; };
-		EE195C135997DB702FCB19A0 /* SpendthriftCore */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SpendthriftCore; sourceTree = SOURCE_ROOT; };
+		EE195C135997DB702FCB19A0 /* SpendthriftCore */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SpendthriftCore; path = SpendthriftCore; sourceTree = SOURCE_ROOT; };
 		F9E7E78A4E982A9EF86087BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		FE71B7CCEE6CDFE977CA332E /* ExpenseStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -259,6 +261,7 @@
 		B0088268382BCA29BCA6ABC4 /* SpendthriftWidgets */ = {
 			isa = PBXGroup;
 			children = (
+				A8C276BBEBE469C089D22F8A /* FlameMark.swift */,
 				F9E7E78A4E982A9EF86087BA /* Info.plist */,
 				3B7E7114842822E1ED861882 /* LogQuickExpenseIntent.swift */,
 				5257467F15D36F14A6CFF37C /* SpendthriftWidget.swift */,
@@ -398,15 +401,19 @@
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
 					4822FB89FE401E4D1F87CB76 = {
+						DevelopmentTeam = WFF6AVLZNB;
 						ProvisioningStyle = Automatic;
 					};
 					75438EE3EA89F52DEB793E93 = {
+						DevelopmentTeam = WFF6AVLZNB;
 						ProvisioningStyle = Automatic;
 					};
 					CD46AFB8757C6F50B6268717 = {
+						DevelopmentTeam = WFF6AVLZNB;
 						ProvisioningStyle = Automatic;
 					};
 					FF1D2D94E16B4743423909A2 = {
+						DevelopmentTeam = WFF6AVLZNB;
 						ProvisioningStyle = Automatic;
 						TestTargetID = CD46AFB8757C6F50B6268717;
 					};
@@ -454,6 +461,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5FC31C7E3CEF393DCF1CD940 /* ExpenseStore.swift in Sources */,
+				FE7EA71823D2847E6239290B /* FlameMark.swift in Sources */,
 				67686F98428E14F1AA9C7B3B /* LogQuickExpenseIntent.swift in Sources */,
 				CB1423568DA4EA5807A95788 /* SpendthriftContainer.swift in Sources */,
 				0406172314BDBAFC49294DF4 /* SpendthriftSchema.swift in Sources */,
@@ -544,7 +552,6 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = SpendthriftWidgets/SpendthriftWidgets.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = WFF6AVLZNB;
 				INFOPLIST_FILE = SpendthriftWidgets/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -567,7 +574,6 @@
 				CODE_SIGN_ENTITLEMENTS = Spendthrift/Spendthrift.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = WFF6AVLZNB;
 				INFOPLIST_FILE = Spendthrift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -620,7 +626,6 @@
 				CODE_SIGN_ENTITLEMENTS = Spendthrift/Spendthrift.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = WFF6AVLZNB;
 				INFOPLIST_FILE = Spendthrift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -654,7 +659,6 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = SpendthriftWidgets/SpendthriftWidgets.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = WFF6AVLZNB;
 				INFOPLIST_FILE = SpendthriftWidgets/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -705,6 +709,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = WFF6AVLZNB;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -785,6 +790,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = WFF6AVLZNB;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;

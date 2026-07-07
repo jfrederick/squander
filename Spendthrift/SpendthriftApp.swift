@@ -1,5 +1,6 @@
 import SwiftUI
 import SwiftData
+import WidgetKit
 
 @main
 struct SpendthriftApp: App {
@@ -38,7 +39,14 @@ struct SpendthriftApp: App {
             }
         }
 
-        store.onExpensesMutated = { DigestScheduler.refresh(store: $0) }
+        store.onExpensesMutated = { store in
+            DigestScheduler.refresh(store: store)
+            // The widget shows live day/month/year totals plus a green/red
+            // spent-today outline; without this, in-app logging leaves the
+            // widget asserting "no spending today" until midnight (the
+            // widget/Siri intents reload from their own processes).
+            WidgetCenter.shared.reloadAllTimelines()
+        }
         self.store = store
     }
 

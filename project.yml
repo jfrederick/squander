@@ -14,6 +14,10 @@ settings:
   base:
     SWIFT_VERSION: "6.0"
     CODE_SIGN_STYLE: Automatic
+    # Keep the team here, NOT hand-edited into the pbxproj: xcodegen
+    # regeneration silently reverts anything that isn't in this file (a
+    # direct pbxproj edit of this value was lost exactly that way once).
+    DEVELOPMENT_TEAM: WFF6AVLZNB
 targets:
   Spendthrift:
     type: application
