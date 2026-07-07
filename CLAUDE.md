@@ -33,7 +33,7 @@ prefix toolchain commands with
 - XCUITest gotchas that have bitten here: identifiers on List rows /
   NavigationLinks don't surface as `app.cells[...]` (use a type-agnostic
   descendants query); tap tab bars by visible label
-  (`app.tabBars.buttons["Totals"]`); keep identifiers/labels unique across
+  (`app.tabBars.buttons["Log"/"Spent"]`); keep identifiers/labels unique across
   screens anyway (the edit keypad uses the `edit-keypad-*` prefix and the
   keypad delete key is labeled "Delete digit"); `waitForExpectations`
   is not Swift 6-safe (use `waitForNonExistence(timeout:)`); keypaths inside
