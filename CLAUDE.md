@@ -10,9 +10,15 @@ there (OpenSpec), and no other spec/planning documents may be added to the repo.
   SwiftUI). Normalization, keypad state, autocomplete ranking, category
   heuristics, totals aggregation, validation rules. This is where logic goes
   by default, because it is the only code testable on machines without Xcode.
+  **All user-facing copy lives here too** (WeeklyDigest, SpendingPace.headline,
+  MonthRecap lines) so every sentence is unit-testable — check this before
+  writing any new sentence in a view.
 - `Spendthrift/Models/` — SwiftData schema (`SpendthriftSchemaV1`, versioned from v1)
   and `ExpenseStore`, the single write path. All mutations and uniqueness rules
-  go through the store.
+  go through the store. `ExpenseStore.onExpensesMutated` is the single
+  post-mutation hook (digest rescheduling and widget timeline reload hang off
+  it): every new write path must fire it, and every new mutation side effect
+  subscribes there — never in views.
 - `Spendthrift/Views/` — thin SwiftUI. Display logic that can live in
   SpendthriftCore must live there instead.
 - `SpendthriftTests/` — Swift Testing against in-memory `ModelContainer`.
@@ -39,7 +45,12 @@ prefix toolchain commands with
   is not Swift 6-safe (use `waitForNonExistence(timeout:)`); keypaths inside
   `#expect` may need explicit closures.
 - Project file: edit `project.yml`, run `xcodegen`, commit both it and the
-  regenerated `Spendthrift.xcodeproj`.
+  regenerated `Spendthrift.xcodeproj`. Never hand-edit the pbxproj — xcodegen
+  regeneration silently drops hand edits (`DEVELOPMENT_TEAM` is pinned in
+  project.yml for exactly this reason).
+- The first `xcodebuild test` right after `xcodegen` regenerates the project
+  (or in a fresh worktree) can fail transiently on stale incremental state —
+  re-run once before debugging a red gate.
 - OpenSpec CLI: `~/.hermes/node/bin/openspec` (`openspec validate <change> --strict`).
 
 ## Domain rules that bite
